@@ -1,4 +1,4 @@
-package School.ITEC2610.Practice.gameTesting.Main;
+package GUI;
 
 import javax.swing.*;
 import java.awt.*;
