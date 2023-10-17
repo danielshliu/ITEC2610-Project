@@ -20,12 +20,12 @@ public class KeyHandler implements KeyListener {
 
         int code = e.getKeyCode();
 
-        /*if (code == KeyEvent.VK_W){
+        if (code == KeyEvent.VK_W){
             up = true;
         }
         if (code == KeyEvent.VK_S){
             down = true;
-        } */
+        }
         if (code == KeyEvent.VK_A){
             left = true;
         }
@@ -38,13 +38,13 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         int code = e.getKeyCode();
-        /*
+
         if (code == KeyEvent.VK_W){
             up = false;
         }
         if (code == KeyEvent.VK_S){
             down = false;
-        } */
+        }
 
         if (code == KeyEvent.VK_A){
             left = false;

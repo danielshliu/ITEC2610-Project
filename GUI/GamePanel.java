@@ -90,6 +90,13 @@ public class GamePanel extends JPanel implements Runnable{
         }
 
 
+        if (keyH.up && playerY - playerSpeed >= 0) {
+            playerY -= playerSpeed;
+        }
+        if (keyH.down && playerY + playerSpeed <= screenHeight - tileSize) {
+            playerY += playerSpeed;
+        }
+
         if (keyH.left && playerX - playerSpeed >= 0) {
             playerX -= playerSpeed;
         }
@@ -107,41 +114,10 @@ public class GamePanel extends JPanel implements Runnable{
         g2.setColor(Color.white);
         g2.fillRect(playerX, playerY, tileSize, tileSize);
 
-        Graphics2D g3 = (Graphics2D)g;
-        /* // Floor
-        for (int i=0; i < screenWidth/tileSize; i++){
-            g3.setColor(Color.green);
-            g3.fillRect(tileSize * i,screenHeight-tileSize,tileSize,tileSize);
-            if (!within2(tileLocations, new int[]{tileSize * i, screenHeight - tileSize})){
-                tileLocations[currentPosLoc] = new int[]{tileSize * i, screenHeight - tileSize};
-                currentPosLoc ++;
-            }
-            } */
-
-        Graphics g4 = (Graphics2D)g;
-        g4.setColor(Color.pink);
-        g4.fillRect(tileSize * 4, tileSize*7, tileSize, tileSize);
-
-        tileLocations[currentPosLoc] = new int[]{tileSize * 4, tileSize * 7};
-        currentPosLoc ++;
-
-        g4.dispose();
         g2.dispose();
-        g3.dispose();
 
 
     }
-
-    /*
-    protected void jump(){
-        jumpTimer += 1;
-        playerY -= playerSpeed*2.5;
-        System.out.println(jumpTimer);
-        if (jumpTimer >15){
-            jump = false;
-            jumpTimer = 0;
-        }
-    }*/
 
     protected boolean within2(int[][]list, int[]check){
         for (int[] element : list) {
@@ -151,26 +127,6 @@ public class GamePanel extends JPanel implements Runnable{
             if (element[0] == check[0] && element[1] == check[1]) {
                 return true;
             }
-        }
-        return false;
-    }
-
-    protected boolean within3(int[][][]list, int[][]check){
-        for (int[][] element : list) {
-            if (element == null){
-                continue;
-            }
-            for (int[] element2 : element){
-                for (int[]check1 : check){
-                    if (element2 == null) {
-                        continue;
-                    }
-                    if (element2[0] == check1[0] && element2[1] == check1[1]) {
-                        return true;
-                    }
-                }
-                }
-
         }
         return false;
     }
