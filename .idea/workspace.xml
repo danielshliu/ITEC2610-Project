@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="856fba70-a45b-4087-8daa-6a7bf00c02f9" name="Changes" comment="Added the mouse listener" />
+    <list default="true" id="856fba70-a45b-4087-8daa-6a7bf00c02f9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697572552751</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added the mouse listener">
+      <created>1697573044593</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697573044593</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,5 +146,10 @@
     <MESSAGE value="Fixed the stuff I changed on the wrong branch (still gotta add mouse listener though)" />
     <MESSAGE value="Added the mouse listener" />
     <option name="LAST_COMMIT_MESSAGE" value="Added the mouse listener" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ITEC2610_Project$Main.ic" NAME="Main Coverage Results" MODIFIED="1697572912511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>GUI.*</FILTER>
+    </SUITE>
   </component>
 </project>
