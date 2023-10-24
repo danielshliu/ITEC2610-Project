@@ -3,12 +3,12 @@ package GUI;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class KeyHandler implements KeyListener {
+public class KeyboardHandler implements KeyListener {
 
-    boolean up = false; // Movement
-    boolean down = false;
-    boolean left = false;
-    boolean right = false;
+    public boolean up = false; // Movement
+    public boolean down = false;
+    public boolean left = false;
+    public boolean right = false;
 
 
     @Override

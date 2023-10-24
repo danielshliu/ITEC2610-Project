@@ -1,5 +1,6 @@
 package GUI;
 
+import Character.Character;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -11,14 +12,15 @@ public class GamePanel extends JPanel implements Runnable{
     final int scale = 3;
 
     final double FPS = 60;
-    final int tileSize = originalTileSize * scale;
+    public final int tileSize = originalTileSize * scale;
     final int maxScreenCol = 16;
     final int maxScreenRow = 12;
-    final int screenWidth = tileSize * maxScreenCol;
-    final int screenHeight = tileSize * maxScreenRow;
+    public final int screenWidth = tileSize * maxScreenCol;
+    public final int screenHeight = tileSize * maxScreenRow;
 
-    KeyHandler keyH = new KeyHandler();
+    KeyboardHandler keyH = new KeyboardHandler();
     MouseHandler mouseH = new MouseHandler();
+    Character character = new Character(this, keyH);
     Thread gameThread;
 
     // Players Default Position
@@ -74,6 +76,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void update() {
 
+        character.update();
         // Player Hit-box
 
         /*for (int i = 0; i < tileSize; i++){
@@ -116,31 +119,9 @@ public class GamePanel extends JPanel implements Runnable{
 
         // User
         Graphics2D g2 = (Graphics2D)g;
-        g2.setColor(Color.white);
-        g2.fillRect(playerX, playerY, tileSize, tileSize);
+        character.draw(g2);
 
-        Graphics2D g3 = (Graphics2D)g;
-        /* // Floor
-        for (int i=0; i < screenWidth/tileSize; i++){
-            g3.setColor(Color.green);
-            g3.fillRect(tileSize * i,screenHeight-tileSize,tileSize,tileSize);
-            if (!within2(tileLocations, new int[]{tileSize * i, screenHeight - tileSize})){
-                tileLocations[currentPosLoc] = new int[]{tileSize * i, screenHeight - tileSize};
-                currentPosLoc ++;
-            }
-            } */
-
-        /*
-        Graphics g4 = (Graphics2D)g;
-        g4.setColor(Color.pink);
-        g4.fillRect(tileSize * 4, tileSize*7, tileSize, tileSize);
-
-        tileLocations[currentPosLoc] = new int[]{tileSize * 4, tileSize * 7};
-        currentPosLoc ++;
-
-        g4.dispose(); */
         g2.dispose();
-        g3.dispose();
 
 
     }
