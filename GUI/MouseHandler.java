@@ -5,9 +5,8 @@ import java.awt.event.MouseListener;
 
 public class MouseHandler  implements MouseListener{
 
-    boolean mouseClicked = false;
-    int[] mouseLocation = new int[2];
-
+    public boolean mouseClicked = false;
+    public int[] mouseLocation = new int[2];
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -29,7 +28,6 @@ public class MouseHandler  implements MouseListener{
 
     @Override
     public void mouseEntered(MouseEvent e) {
-
     }
 
     @Override

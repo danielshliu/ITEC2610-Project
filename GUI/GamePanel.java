@@ -20,7 +20,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     KeyboardHandler keyH = new KeyboardHandler();
     MouseHandler mouseH = new MouseHandler();
-    Character character = new Character(this, keyH);
+    Character character = new Character(this, keyH, mouseH);
     Thread gameThread;
 
     // Players Default Position
@@ -44,6 +44,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
+        this.addMouseListener(mouseH);
         this.setFocusable(true);
 
     }
@@ -92,50 +93,18 @@ public class GamePanel extends JPanel implements Runnable{
             System.out.println(" ");
 
         }*/
-
-        if (keyH.up && playerY - playerSpeed >= 0) {
-            playerY -= playerSpeed;
-        }
-
-        if (keyH.down && playerY + playerSpeed <= screenHeight - tileSize) {
-            playerY += playerSpeed;
-        }
-
-        if (keyH.left && playerX - playerSpeed >= 0) {
-            playerX -= playerSpeed;
-        }
-        if (keyH.right && playerX + playerSpeed <= screenWidth - tileSize) {
-            playerX += playerSpeed;
-        }
-
-        if (mouseH.mouseClicked){
-            System.out.println("X: " + mouseH.mouseLocation[0] + " Y: " + mouseH.mouseLocation[1]);
-        }
     }
 
     public void paintComponent(Graphics g){
 
         super.paintComponent(g);
-
         // User
         Graphics2D g2 = (Graphics2D)g;
         character.draw(g2);
-
         g2.dispose();
 
 
     }
-
-    /*
-    protected void jump(){
-        jumpTimer += 1;
-        playerY -= playerSpeed*2.5;
-        System.out.println(jumpTimer);
-        if (jumpTimer >15){
-            jump = false;
-            jumpTimer = 0;
-        }
-    }*/
 
     protected boolean within2(int[][]list, int[]check){
         for (int[] element : list) {
