@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="856fba70-a45b-4087-8daa-6a7bf00c02f9" name="Changes" comment="Added a png on the Character">
-      <change afterPath="$PROJECT_DIR$/img/Ship.png" afterDir="false" />
+    <list default="true" id="856fba70-a45b-4087-8daa-6a7bf00c02f9" name="Changes" comment="Added a png on the Character and fixed MouseListener">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Character/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/MouseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/MouseHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698163857338</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added a png on the Character and fixed MouseListener">
+      <created>1698176385850</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1698176385850</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -174,7 +178,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="Just moving some stuff from Game Panel to Character class so it won't be all clustered when we add more entities." />
     <MESSAGE value="Added a png on the Character" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a png on the Character" />
+    <MESSAGE value="Added a png on the Character and fixed MouseListener" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a png on the Character and fixed MouseListener" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ITEC2610_Project$Main.ic" NAME="Main Coverage Results" MODIFIED="1697572912511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

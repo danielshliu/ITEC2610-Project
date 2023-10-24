@@ -6,6 +6,7 @@ public class Entity {
     protected int x;
     protected int y;
     protected int speed;
+    protected double direction;
 
     public BufferedImage im;
 
