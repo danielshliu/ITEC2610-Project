@@ -31,12 +31,15 @@ public class GamePanel extends JPanel implements Runnable{
 
     // For Jump
     int jumpTimer = 0;
-    boolean jump = false;
-
+    boolean jump = false;    
+    
+    
+    //These are for visual hitboxes.
     // Collision Hit-boxes
     int[][] tileLocations = new int[1000][];
     int currentPosLoc = 0;
 
+    //Yeet this over to character.
     // Player Hitbox
     int[][][] hitbox = new int[tileSize * tileSize][tileSize][2];
     public GamePanel(){
