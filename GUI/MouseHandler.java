@@ -19,7 +19,6 @@ public class MouseHandler implements MouseListener, MouseMotionListener {
     public void mousePressed(MouseEvent e) {
         mouseClicked = true;
 
-
         mouseLocation[0] = e.getX();
         mouseLocation[1] = e.getY();
     }

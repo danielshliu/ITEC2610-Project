@@ -1,6 +1,7 @@
 package GUI;
 
 import Character.Character;
+import Character.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -12,15 +13,16 @@ public class GamePanel extends JPanel implements Runnable{
     final int scale = 3;
 
     final double FPS = 60;
-    public final int tileSize = originalTileSize * scale;
+    public final int tileSize = originalTileSize * scale; // 48
     final int maxScreenCol = 16;
     final int maxScreenRow = 12;
-    public final int screenWidth = tileSize * maxScreenCol;
-    public final int screenHeight = tileSize * maxScreenRow;
+    public final int screenWidth = tileSize * maxScreenCol; // 768
+    public final int screenHeight = tileSize * maxScreenRow; // 576
 
     KeyboardHandler keyH = new KeyboardHandler();
     MouseHandler mouseH = new MouseHandler();
-    Character character = new Character(this, keyH, mouseH);
+    public Character character = new Character(this, keyH, mouseH);
+    Enemy1 enemy1 = new Enemy1(this);
     Thread gameThread;
 
     // Players Default Position
@@ -79,6 +81,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void update() {
 
         character.update();
+        enemy1.update();
         // Player Hit-box
 
         /*for (int i = 0; i < tileSize; i++){
@@ -100,9 +103,13 @@ public class GamePanel extends JPanel implements Runnable{
 
         super.paintComponent(g);
         // User
+
         Graphics2D g2 = (Graphics2D)g;
+        enemy1.draw(g2);
+
         character.draw(g2);
         g2.dispose();
+
 
 
     }

@@ -14,9 +14,9 @@ import java.awt.event.MouseEvent;
 
 
 public class Character extends Entity {
-    public ArrayList<Entity> bulletInChamber;
+    public ArrayList<Bullet> bulletInChamber = new ArrayList<>();
+    Bullet curBullet;
     private int hitPoint;
-    GamePanel gp;
     KeyboardHandler keyH;
     MouseHandler mouseH;
 
@@ -24,13 +24,15 @@ public class Character extends Entity {
     int x1, y1, x2, y2, x3, y3;
     double slope13;
     double slope23;
-    double directionNew;
 
-    int count;
+    boolean shot = false;
+    long shotTime;
+
+
 
     double calc;
     public Character(GamePanel gp, KeyboardHandler keyH, MouseHandler mouseH) {
-        this.gp = gp;
+        super(gp);
         this.keyH = keyH;
         this.mouseH = mouseH;
         defaultValues();
@@ -81,12 +83,23 @@ public class Character extends Entity {
             System.out.println("X: " + mouseH.mouseLocation[0] + " Y: " + mouseH.mouseLocation[1]);
 
         }
+
+        for (int i = 0; i < bulletInChamber.size(); i++){
+            if (bulletInChamber.get(i).valid){
+                bulletInChamber.get(i).update();
+            }
+
+        }
     }
 
     public void draw(Graphics2D g2){
+        for (int i = 0; i < bulletInChamber.size(); i++){
+            if (bulletInChamber.get(i).valid) {
+                bulletInChamber.get(i).draw(g2);
+            }
+        }
         //g2.setColor(Color.white);
         //g2.fillRect(x, y, gp.tileSize, gp.tileSize);
-
 
 
         g2.setColor(Color.white);
@@ -101,7 +114,12 @@ public class Character extends Entity {
             x3 = x+(gp.tileSize/2);
             y3 = y+(gp.tileSize/2);
 
+
+
             slope23 = (float)(y3-y2)/(x3-x2);
+            //System.out.println(Arrays.toString(new int[]{x2, y2, x3, y3}) + " SLOPE: " + slope23);
+            double b23 = ((slope23 * x2) - y2)*-1;
+            //System.out.println(b23);
 
             if (x3 != x1){
                 slope13 = (float)(y3-y1)/(x3-x1);
@@ -132,8 +150,6 @@ public class Character extends Entity {
                 }
             }
 
-
-
             //System.out.println((calc + direction) % 360);
 
             g2.drawRect(mouseH.mouseLocation[0]-5, mouseH.mouseLocation[1]-5, 10, 10);
@@ -145,11 +161,15 @@ public class Character extends Entity {
             if (direction > 360){
                 direction = direction % 360;
             }
+
+
             g2.drawLine(x1, y1 , x2, y2);
+
+            shoot(direction, slope23, g2, b23);
 
         }
 
-        System.out.println(Arrays.toString(mouseH.mouseLocation));
+        //System.out.println(Arrays.toString(mouseH.mouseLocation));
 
         g2.rotate(Math.toRadians(direction), x+(gp.tileSize/2) , y+(gp.tileSize/2));
 
@@ -162,7 +182,24 @@ public class Character extends Entity {
 
     }
 
+    public void shoot(double d, double slope, Graphics2D g, double b){
+        if (!shot){
+            shotTime = System.currentTimeMillis();
+            shot = true;
+            bulletInChamber.add(new Bullet(gp, x3, y3, d, slope, b));
+            curBullet = bulletInChamber.get(bulletInChamber.size()-1);
+
+
+        }
+        else{
+            if (System.currentTimeMillis() - shotTime > 300){
+                shot = false;
+            }
+        }
+
+    }
+
     //
-    //$ javac MyClass.java    //getters and setters
+    //d$ javac MyClass.java    //getters and setters
     
 }
