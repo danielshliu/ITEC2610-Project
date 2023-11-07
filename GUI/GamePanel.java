@@ -5,6 +5,8 @@ import Character.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import levels.Levels;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -18,30 +20,23 @@ public class GamePanel extends JPanel implements Runnable{
     final int maxScreenRow = 12;
     public final int screenWidth = tileSize * maxScreenCol; // 768
     public final int screenHeight = tileSize * maxScreenRow; // 576
-
+    public Rectangle playScreen = new Rectangle(-tileSize, -tileSize, screenWidth+(tileSize*2), screenHeight+(tileSize*2));
     KeyboardHandler keyH = new KeyboardHandler();
     MouseHandler mouseH = new MouseHandler();
+    Levels lvl = new Levels(this);
     public Character character = new Character(this, keyH, mouseH);
-    Enemy1 enemy1 = new Enemy1(this);
+    public ArrayList<Enemy1> asteroids = new ArrayList<>();
+    //Enemy1 enemy1 = new Enemy1(this, new int[]{-3, -1} ,new int[]{1,1}, new int[]{2, 3});
+    Enemy1 enemy1 = new Enemy1(this, new int[]{0, 400} ,new int[]{300, 200}, new int[]{768, 300}, 2);
+    Enemy1 enemy2 = new Enemy1(this, new int[]{screenWidth, 520} ,new int[]{300, 400}, new int[]{0, 360}, 1);
     Thread gameThread;
 
-    // Players Default Position
-    int playerX = screenWidth/2;
-    int playerY = screenHeight/2;
-    int playerSpeed = 4;
-    int gravity = 4;
+    ArrayList<Enemy1> enemies = new ArrayList<>();
+    ArrayList<Bullet> bullets = new ArrayList<>();
+    Rectangle t1;
+    int hit1;
 
-    // For Jump
-    int jumpTimer = 0;
-    boolean jump = false;
-
-    // Collision Hit-boxes
-    int[][] tileLocations = new int[1000][];
-    int currentPosLoc = 0;
-
-    // Player Hitbox
-    int[][][] hitbox = new int[tileSize * tileSize][tileSize][2];
-    public GamePanel(){
+    public GamePanel(){ //Default constructor
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
@@ -49,7 +44,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.addMouseListener(mouseH);
         this.addMouseMotionListener(mouseH);
         this.setFocusable(true);
-
+        lvl.testLevel();
     }
 
     public void startGameThread(){
@@ -57,6 +52,7 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread.start();
     }
 
+    // Making the game 60FPS
     @Override
     public void run() {
         double drawInterval = 1000000000/FPS;
@@ -69,9 +65,7 @@ public class GamePanel extends JPanel implements Runnable{
             delta += (currentTime - lastTime ) / drawInterval;
             lastTime = currentTime;
             if (delta >= 1){
-
                 update();
-
                 repaint(); // calls paintComponent()
                 delta--;
             }
@@ -80,90 +74,70 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void update() {
 
-        character.update();
-        enemy1.update();
-        // Player Hit-box
-
-        /*for (int i = 0; i < tileSize; i++){
-            for (int o = 0; i < tileSize; i++){
-
-                // x hit-box
-                hitbox[i][o][0] = playerX + i;
-                // y hit-box
-                hitbox[i][o][1] = playerY + o;
-
-                System.out.print("x: " + hitbox[i][o][0] + " y: " + hitbox[i][o][1] + " | ");
+        enemies.clear();
+        for (Enemy1 e : asteroids){
+            if (e.valid){
+                enemies.add(e);
             }
-            System.out.println(" ");
+        }
 
-        }*/
+
+        for (int o = 0; o < character.bulletInChamber.size(); o++){
+            if (character.bulletInChamber.get(o).valid) {
+                bullets.add(character.bulletInChamber.get(o));
+            }
+        }
+
+        //HitBoxes.add(character.getHitbox());
+
+        for (Enemy1 e : enemies) {
+            for (Bullet b : bullets) {
+                if(e.getHitbox().contains(b.getHitbox())){
+                    e.hit(bullets.indexOf(b));
+                    b.valid = false;
+                }
+            }
+        }
+
+
+
+        character.update();
+        for (Enemy1 e : asteroids){
+            if (e.valid){
+                e.update();
+            }
+        }
     }
 
     public void paintComponent(Graphics g){
 
         super.paintComponent(g);
-        // User
 
+        // Enemy (Asteroid)
         Graphics2D g2 = (Graphics2D)g;
-        enemy1.draw(g2);
+        for (Enemy1 e : asteroids){
+            if (e.valid){
+                e.draw(g2);
+            }
+        }
 
+        character.drawHitbox(g2);
+
+        // User (Paint last)
         character.draw(g2);
+
+
         g2.dispose();
-
-
-
     }
 
-    protected boolean within2(int[][]list, int[]check){
-        for (int[] element : list) {
-            if (element == null){
-                continue;
-            }
-            if (element[0] == check[0] && element[1] == check[1]) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    protected boolean within3(int[][][]list, int[][]check){
-        for (int[][] element : list) {
-            if (element == null){
-                continue;
-            }
-            for (int[] element2 : element){
-                for (int[]check1 : check){
-                    if (element2 == null) {
-                        continue;
-                    }
-                    if (element2[0] == check1[0] && element2[1] == check1[1]) {
-                        return true;
-                    }
+    public Rectangle checkCollision2(ArrayList<Rectangle> l, ArrayList<Rectangle> l2){
+        for (Rectangle rectangle : l) {
+            for (Rectangle rectangle2 : l2) {
+                if(rectangle.contains(rectangle2)){
+                    return rectangle;
                 }
             }
-
         }
-        return false;
+        return null;
     }
-
-    private int[][] hitBox(int[][]x){
-        int[][] output = new int[2304][2];
-        int count1 = 0;
-        int count2 = 0;
-        for(int[] elements : x){
-            for (int i = 0; i < 2304; i++){
-                output[i][0] = elements[0] + count1;
-                output[i][1] = elements[1] + count2;
-                count1++;
-                if (count1 == 48){
-                    count2 ++;
-                    count1 = 0;
-                }
-            }
-            return output;
-        }
-        return output;
-    }
-
-
 }

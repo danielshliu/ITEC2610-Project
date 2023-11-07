@@ -13,6 +13,7 @@ import java.util.Objects;
 import java.awt.event.MouseEvent;
 
 
+
 public class Character extends Entity {
     public ArrayList<Bullet> bulletInChamber = new ArrayList<>();
     Bullet curBullet;
@@ -24,15 +25,17 @@ public class Character extends Entity {
     int x1, y1, x2, y2, x3, y3;
     double slope13;
     double slope23;
-
+    double b23 = 0;
     boolean shot = false;
     long shotTime;
+
+    ArrayList<Rectangle> bulletHitboxes = new ArrayList<>();
 
 
 
     double calc;
     public Character(GamePanel gp, KeyboardHandler keyH, MouseHandler mouseH) {
-        super(gp);
+        super(gp, gp.tileSize, gp.tileSize);
         this.keyH = keyH;
         this.mouseH = mouseH;
         defaultValues();
@@ -52,18 +55,25 @@ public class Character extends Entity {
     
     public void setHitPoint(int newHitPoint){
         hitPoint = newHitPoint;
-
     }
 
     public void getImage(){
         try{
-            im = ImageIO.read(getClass().getResourceAsStream("/img/Ship.png"));
+            im = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/img/Ship.png")));
         } catch(IOException e){
             e.printStackTrace();
         }
     }
 
     public void update(){
+        updateHitBox();
+
+        for (int i = 0; i < bulletInChamber.size(); i++){
+            if (bulletInChamber.get(i).valid) {
+                //System.out.println(bulletInChamber.get(i).getHitbox());
+            }
+        }
+
         if (keyH.up && y - speed >= 0) {
             y -= speed;
         }
@@ -79,11 +89,6 @@ public class Character extends Entity {
             x += speed;
         }
 
-        if (mouseH.mouseClicked){
-            System.out.println("X: " + mouseH.mouseLocation[0] + " Y: " + mouseH.mouseLocation[1]);
-
-        }
-
         for (int i = 0; i < bulletInChamber.size(); i++){
             if (bulletInChamber.get(i).valid){
                 bulletInChamber.get(i).update();
@@ -93,6 +98,8 @@ public class Character extends Entity {
     }
 
     public void draw(Graphics2D g2){
+        //drawHitbox(g2);
+
         for (int i = 0; i < bulletInChamber.size(); i++){
             if (bulletInChamber.get(i).valid) {
                 bulletInChamber.get(i).draw(g2);
@@ -114,11 +121,9 @@ public class Character extends Entity {
             x3 = x+(gp.tileSize/2);
             y3 = y+(gp.tileSize/2);
 
-
-
             slope23 = (float)(y3-y2)/(x3-x2);
             //System.out.println(Arrays.toString(new int[]{x2, y2, x3, y3}) + " SLOPE: " + slope23);
-            double b23 = ((slope23 * x2) - y2)*-1;
+            b23 = ((slope23 * x2) - y2)*-1;
             //System.out.println(b23);
 
             if (x3 != x1){
@@ -171,11 +176,10 @@ public class Character extends Entity {
 
         //System.out.println(Arrays.toString(mouseH.mouseLocation));
 
-        g2.rotate(Math.toRadians(direction), x+(gp.tileSize/2) , y+(gp.tileSize/2));
+        g2.rotate(Math.toRadians(direction), x+(gp.tileSize/2.0) , y+(gp.tileSize/2.0));
+
 
         g2.drawImage(im, x, y, gp.tileSize, gp.tileSize, null);
-
-
 
 
         g2.drawLine(x+(gp.tileSize/2), (y+(gp.tileSize/2)) , x+(gp.tileSize/2), (y+(gp.tileSize/2)) - 100);
@@ -188,11 +192,9 @@ public class Character extends Entity {
             shot = true;
             bulletInChamber.add(new Bullet(gp, x3, y3, d, slope, b));
             curBullet = bulletInChamber.get(bulletInChamber.size()-1);
-
-
         }
         else{
-            if (System.currentTimeMillis() - shotTime > 300){
+            if (System.currentTimeMillis() - shotTime > 100){
                 shot = false;
             }
         }

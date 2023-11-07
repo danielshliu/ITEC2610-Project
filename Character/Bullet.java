@@ -11,12 +11,16 @@ public class Bullet extends Entity{
     double yd;
     double xd;
     public boolean valid = true;
+    int sizeW;
+    int sizeH;
 
 
 
     public Bullet(GamePanel gp, int x, int y, double direction, double slope, double b) {
-        super(gp);
+        super(gp, 10, 10);
         defaultStats(x, y, direction, slope, b);
+
+
     }
 
     public void defaultStats(int x, int y, double direction, double slope, double b){
@@ -27,12 +31,16 @@ public class Bullet extends Entity{
         this.b = b;
         this.yd = y;
         this.xd = x;
+        this.sizeW = 10;
+        this.sizeH = 10;
 
     }
 
     public void draw(Graphics2D g){
+
         g.setColor(Color.green);
-        g.fill(new Rectangle2D.Double(xd-5, yd-5, 10, 10));
+        g.fill(new Rectangle2D.Double(xd-(sizeW/2.0), yd-(sizeH/2.0), 10, 10));
+        drawHitbox(g);
     }
 
     public void update(){
@@ -87,6 +95,10 @@ public class Bullet extends Entity{
         } else{
             valid = false;
         }
+
+        x = (int)xd - 5;
+        y = (int)yd - 5;
+        updateHitBox();
 
     }
 
