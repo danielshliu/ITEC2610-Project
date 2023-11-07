@@ -13,6 +13,7 @@ public abstract class characterAbs {
         
     public abstract void enemyMove();
 
+    
 
 
 }
