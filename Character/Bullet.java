@@ -1,8 +1,10 @@
 package Character;
+
 import GUI.GamePanel;
 import java.awt.geom.Rectangle2D;
 import java.lang.Math;
 import java.awt.*;
+
 public class Bullet extends Entity{
 
     double slope;

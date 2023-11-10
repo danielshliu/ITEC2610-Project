@@ -58,6 +58,7 @@ public class Enemy1 extends Entity{
                      {midP[0] * midP[0], midP[0], midP[1]},
                      {endP[0] * endP[0], endP[0], endP[1]}};
 
+        //Are these all the coords for the asterids?
         int evalD = (D[0][0] * D[1][1] * D[2][2] + D[0][1] * D[1][2] * D[2][0] + D[0][2] * D[1][0] * D[2][1])-
                     (D[0][2] * D[1][1] * D[2][0] + D[0][0] * D[1][2] * D[2][1] + D[0][1] * D[1][0] * D[2][2]);
 
