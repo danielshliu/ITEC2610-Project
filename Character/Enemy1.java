@@ -4,10 +4,9 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.lang.Math;
-import java.util.Arrays;
 import java.util.Objects;
 
-import GUI.GamePanel;
+import Game.GamePanel;
 
 // Asteroid
 public class Enemy1 extends Entity{

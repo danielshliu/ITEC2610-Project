@@ -1,14 +1,9 @@
-package GUI;
+package Game;
 import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
         JFrame window = new JFrame();
-        JButton start = new JButton("Start");
-        JButton options = new JButton("Options");
-        JButton tutorial = new JButton("Tutorial");
-        JButton exit = new JButton("Exit");
-
 
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setResizable(false);
@@ -23,18 +18,9 @@ public class Main {
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 
-        //This starts the game.
-
-        //gamePanel.startGameThread();
-
-    }
-    private void startMenu(){
+        //This starts the game
+        gamePanel.startGameThread();
 
     }
-    private void optionsMenu(){
 
-    }
-    private void tutorial(){
-
-    }
 }

@@ -1,6 +1,6 @@
 package Character;
 
-import GUI.GamePanel;
+import Game.GamePanel;
 import java.awt.geom.Rectangle2D;
 import java.lang.Math;
 import java.awt.*;

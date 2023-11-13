@@ -1,17 +1,13 @@
 package Character;
-import GUI.*;
-import GUI.MouseHandler;
+import Game.*;
+import Game.MouseHandler;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.event.MouseMotionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.lang.Math;
-import java.util.Arrays;
 import java.util.Objects;
-import java.awt.event.MouseEvent;
-
 
 
 public class Character extends Entity {

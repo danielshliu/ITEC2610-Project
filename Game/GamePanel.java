@@ -1,19 +1,27 @@
-package GUI;
+package Game;
 
 import Character.Character;
 import Character.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
+
+import gamestates.Gamestate;
+import gamestates.Menu;
+import levels.LevelManager;
 import levels.Levels;
 
+
 public class GamePanel extends JPanel implements Runnable{
+
+    //Menu stuff
+    private Menu menu;
+    private LevelManager levelManager;
+
 
     //Screen Settings
     final int originalTileSize = 16;
     final int scale = 3;
-
     final double FPS = 60;
     public final int tileSize = originalTileSize * scale; // 48
     final int maxScreenCol = 16;
@@ -26,9 +34,13 @@ public class GamePanel extends JPanel implements Runnable{
     Levels lvl = new Levels(this);
     public Character character = new Character(this, keyH, mouseH);
     public ArrayList<Enemy1> asteroids = new ArrayList<>();
+
+    //Jacob I'm guessing these enemies here don't really matter since enemies are created in the level class.
+
     //Enemy1 enemy1 = new Enemy1(this, new int[]{-3, -1} ,new int[]{1,1}, new int[]{2, 3});
-    Enemy1 enemy1 = new Enemy1(this, new int[]{0, 400} ,new int[]{300, 200}, new int[]{768, 300}, 2);
-    Enemy1 enemy2 = new Enemy1(this, new int[]{screenWidth, 520} ,new int[]{300, 400}, new int[]{0, 360}, 1);
+//    Enemy1 enemy1 = new Enemy1(this, new int[]{0, 400} ,new int[]{300, 200}, new int[]{768, 300}, 2);
+
+//    Enemy1 enemy2 = new Enemy1(this, new int[]{screenWidth, 520} ,new int[]{300, 400}, new int[]{0, 360}, 1);
     Thread gameThread;
 
     ArrayList<Enemy1> enemies = new ArrayList<>();
@@ -44,12 +56,27 @@ public class GamePanel extends JPanel implements Runnable{
         this.addMouseListener(mouseH);
         this.addMouseMotionListener(mouseH);
         this.setFocusable(true);
-        lvl.testLevel();
+
+        //Disabling this for now
+        //lvl.testLevel();
+
     }
 
     public void startGameThread(){
+        //Menu things click things.
         gameThread = new Thread(this);
         gameThread.start();
+        switch(Gamestate.state){
+            case MENU:
+
+                break;
+            case PLAYING:
+                gameThread = new Thread(this);
+                gameThread.start();
+                break;
+            default:
+                break;
+        }
     }
 
     // Making the game 60FPS
@@ -81,13 +108,11 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
 
-
         for (int o = 0; o < character.bulletInChamber.size(); o++){
             if (character.bulletInChamber.get(o).valid) {
                 bullets.add(character.bulletInChamber.get(o));
             }
         }
-
         //HitBoxes.add(character.getHitbox());
 
         for (Enemy1 e : enemies) {
@@ -100,13 +125,13 @@ public class GamePanel extends JPanel implements Runnable{
         }
 
 
-
         character.update();
         for (Enemy1 e : asteroids){
             if (e.valid){
                 e.update();
             }
         }
+
     }
 
     public void paintComponent(Graphics g){
@@ -122,10 +147,8 @@ public class GamePanel extends JPanel implements Runnable{
         }
 
         character.drawHitbox(g2);
-
         // User (Paint last)
         character.draw(g2);
-
 
         g2.dispose();
     }
