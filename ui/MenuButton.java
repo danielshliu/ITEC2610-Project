@@ -1,18 +1,19 @@
 package ui;
 
-import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.nio.Buffer;
+import java.util.concurrent.RecursiveAction;
 
+import levels.LoadLevel;
 import gamestates.Gamestate;
 import levels.LoadSaves;
 
 
 public class MenuButton {
-    //adjust if needed
     private int B_WIDTH = 140;
     private int B_HEIGHT = 56;
-
     private int xPos,yPos,rowIndex, index;
     private int xOffsetCenter = B_WIDTH/2;
     private Gamestate state;
@@ -28,7 +29,6 @@ public class MenuButton {
         loadImgs();
 
     }
-
     private void initBounds(){
         bounds = new Rectangle(xPos - xOffsetCenter, yPos,B_WIDTH,B_WIDTH);
 
@@ -84,9 +84,5 @@ public class MenuButton {
         mouseOver = false;
         mousePressed = false;
     }
-
-
-
-
 
 }
