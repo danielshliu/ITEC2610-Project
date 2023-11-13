@@ -92,7 +92,7 @@ public class Enemy1 extends Entity{
 
     public void getImage(){
         try{
-            im = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/img/Asteroid.png")));
+            im = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/img/AsteroidLevel1.png")));
         } catch(IOException e){
             e.printStackTrace();
         }

@@ -20,14 +20,14 @@ public class GamePanel extends JPanel implements Runnable{
 
 
     //Screen Settings
-    final int originalTileSize = 16;
-    final int scale = 3;
+    final static int originalTileSize = 16;
     final double FPS = 60;
-    public final int tileSize = originalTileSize * scale; // 48
-    final int maxScreenCol = 16;
-    final int maxScreenRow = 12;
-    public final int screenWidth = tileSize * maxScreenCol; // 768
-    public final int screenHeight = tileSize * maxScreenRow; // 576
+    public final static int scale = 3;
+    public static final int tileSize = originalTileSize * scale; // 48
+    final static int maxScreenCol = 16;
+    final static int maxScreenRow = 12;
+    public static final int screenWidth = tileSize * maxScreenCol; // 768
+    public static final int screenHeight = tileSize * maxScreenRow; // 576
     public Rectangle playScreen = new Rectangle(-tileSize, -tileSize, screenWidth+(tileSize*2), screenHeight+(tileSize*2));
     KeyboardHandler keyH = new KeyboardHandler();
     MouseHandler mouseH = new MouseHandler();

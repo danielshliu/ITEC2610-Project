@@ -13,13 +13,14 @@ public class Main {
         window.add(gamePanel);
 
 
-        window.pack();
+        gamePanel.startGameThread();
 
+
+        window.pack();
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 
         //This starts the game
-        gamePanel.startGameThread();
 
     }
 

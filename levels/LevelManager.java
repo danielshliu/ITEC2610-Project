@@ -14,7 +14,7 @@ public class LevelManager {
 
     public LevelManager(GamePanel game,String levelFileName){
         this.game = game;
-        levelBackGround = LoadLevel.getLevelBackground(levelFileName);
+        levelBackGround = LoadSaves.getLevelBackground(levelFileName);
 
 
 

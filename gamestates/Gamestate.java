@@ -2,7 +2,8 @@ package gamestates;
 
 public enum Gamestate {
 
-    PLAYING,MENU;
+    //MENU is just back button
+    PLAYING,OPTIONS,TUTORIAL,MENU,LEVELSELECTION,QUIT;
 
     public static Gamestate state = MENU;
 

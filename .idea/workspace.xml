@@ -5,28 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce733c4f-0d61-4380-bdc4-e9573854f8d9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Game/MainFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gamestates/Gamestate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gamestates/LevelSelection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gamestates/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gamestates/Playing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gamestates/State.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gamestates/Statemethods.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/levels/LevelManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/levels/LoadLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/levels/levelInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/MenuButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Character/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Character.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Character/Enemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Enemy1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Character/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/KeyboardHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/KeyboardHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/MainFrame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/MouseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MouseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/levels/Levels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/Gamestate.java" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/Gamestate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/LevelSelection.java" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/LevelSelection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/levels/LevelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/LoadLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/levels/LoadSaves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/MenuButton.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
