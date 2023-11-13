@@ -19,7 +19,7 @@ public class MenuButton {
     private BufferedImage[] imgs;
     private boolean mouseOver, mousePressed;
     private Rectangle bounds;
-
+    //check
     public MenuButton(int xPos, int yPos, int rowIndex, Gamestate state){
         this.xPos = xPos;
         this.yPos = yPos;
