@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce733c4f-0d61-4380-bdc4-e9573854f8d9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ui/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/MenuButton.java" afterDir="false" />
-    </list>
+    <list default="true" id="ce733c4f-0d61-4380-bdc4-e9573854f8d9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
