@@ -22,6 +22,9 @@ public interface Statemethods {
 
     public void keyReleased(KeyEvent e);
 
+    public void mouseDragged(MouseEvent e);
+
+
 
 
 

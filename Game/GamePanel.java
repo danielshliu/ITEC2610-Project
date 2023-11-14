@@ -58,8 +58,8 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
 
         //Disabling this for now
-        //lvl.testLevel();
-
+        lvl.testLevel();
+        lvl.levelOne();
     }
 
     public void startGameThread(){

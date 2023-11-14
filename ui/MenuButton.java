@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.nio.Buffer;
 import java.util.concurrent.RecursiveAction;
 
-import levels.LoadLevel;
+import levels.LoadSaves;
 import gamestates.Gamestate;
 import levels.LoadSaves;
 

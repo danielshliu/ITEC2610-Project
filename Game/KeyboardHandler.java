@@ -17,7 +17,7 @@ public class KeyboardHandler implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        //just use swtich statement here?
         int code = e.getKeyCode();
 
         if (code == KeyEvent.VK_W){
