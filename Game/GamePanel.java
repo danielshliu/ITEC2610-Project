@@ -16,7 +16,7 @@ import gamestates.Playing;
 public class GamePanel extends JPanel implements Runnable{
 
     //Menu stuff
-    private Menu menu;
+    private Menu menu = new Menu(this);
     private LevelManager levelManager;
 
 
@@ -71,18 +71,19 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void startGameThread(){
         //Menu things click things.
-        gameThread = new Thread(this);
-        gameThread.start();
 
         switch(Gamestate.state){
             case MENU:
-
+                menu.update();
                 break;
             case PLAYING:
                 gameThread = new Thread(this);
                 gameThread.start();
                 break;
+            case OPTIONS:
+            case QUIT:
             default:
+                System.exit(0);
                 break;
         }
     }

@@ -36,8 +36,11 @@ public class MenuButton {
 
     private void loadImgs(){
         imgs = new BufferedImage[4];
+
+
+
         imgs[0] = LoadSaves.getLevelBackground(LoadSaves.PLAYBUTTON);
-        imgs[1] = LoadSaves.getLevelBackground(LoadSaves. TUTORIALBUTTON);
+        imgs[1] = LoadSaves.getLevelBackground(LoadSaves.TUTORIALBUTTON);
         imgs[2] = LoadSaves.getLevelBackground(LoadSaves.OPTIONBUTTON);
         imgs[3] = LoadSaves.getLevelBackground(LoadSaves.QUITBUTTON);
 

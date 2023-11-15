@@ -19,8 +19,6 @@ public class Menu extends State implements Statemethods{
 
     public Menu(GamePanel game){
         super(game);
-
-
         loadButtons();
         loadBackground();
     }
@@ -39,7 +37,10 @@ public class Menu extends State implements Statemethods{
 
     public void loadBackground(){
         backgroundImg = LoadSaves.getLevelBackground(LoadSaves.MenuBackGround);
-
+        menuWidth = (int) (backgroundImg.getWidth() * game.scale);
+        menuHeight = (int) (backgroundImg.getHeight() * game.scale);
+        menuX = game.screenWidth / 2 - menuWidth/2;
+        menuY = (int) (45 * game.scale);
     }
     @Override
     public void update() {

@@ -107,68 +107,41 @@ public class Playing extends  State implements Statemethods,MouseListener,MouseM
 
     @Override
     public void keyPressed(KeyEvent e) {
-        int code = e.getKeyCode();
 
-        if (code == KeyEvent.VK_W){
-            up = true;
-        }
-        if (code == KeyEvent.VK_S){
-            down = true;
-        }
-        if (code == KeyEvent.VK_A){
-            left = true;
-        }
-        if (code == KeyEvent.VK_D){
-            right = true;
-        }
 
-//        switch(e.getKeyCode()){
-//            case KeyEvent.VK_W:
-//                up = true;
-//                break;
-//            case KeyEvent.VK_S:
-//                down = true;
-//                break;
-//            case KeyEvent.VK_A:
-//                left = true;
-//                break;
-//            case KeyEvent.VK_D:
-//                right = true;
-//                break;
-//        }
+        switch(e.getKeyCode()){
+            case KeyEvent.VK_W:
+                up = true;
+                break;
+            case KeyEvent.VK_S:
+                down = true;
+                break;
+            case KeyEvent.VK_A:
+                left = true;
+                break;
+            case KeyEvent.VK_D:
+                right = true;
+                break;
+        }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        int code = e.getKeyCode();
 
-        if (code == KeyEvent.VK_W){
-            up = false;
-        }
-        if (code == KeyEvent.VK_S){
-            down = false;
-        }
 
-        if (code == KeyEvent.VK_A){
-            left = false;
+        switch(e.getKeyCode()){
+            case KeyEvent.VK_W:
+                up = false;
+                break;
+            case KeyEvent.VK_S:
+                down = false;
+                break;
+            case KeyEvent.VK_A:
+                left = false;
+                break;
+            case KeyEvent.VK_D:
+                right = false;
+                break;
         }
-        if (code == KeyEvent.VK_D){
-            right = false;
-        }
-
-//        switch(e.getKeyCode()){
-//            case KeyEvent.VK_W:
-//                up = false;
-//                break;
-//            case KeyEvent.VK_S:
-//                down = false;
-//                break;
-//            case KeyEvent.VK_A:
-//                left = false;
-//                break;
-//            case KeyEvent.VK_D:
-//                right = false;
-//                break;
-//        }
     }
 }

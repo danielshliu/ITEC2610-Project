@@ -36,7 +36,7 @@ public class Levels implements levelInterface{
         Enemy1 enemy6 = new Enemy1(gp, new int[]{gp.screenWidth, 520} ,new int[]{300, 400}, new int[]{400, 300}, 4);
         gp.asteroids.add(enemy6);
     }
-
+    //Create these levels later by, Sunday night.
     @Override
     public void levelTwo() {
 

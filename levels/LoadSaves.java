@@ -1,9 +1,14 @@
 package levels;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.Buffer;
 import javax.imageio.ImageIO;
+
+import javax.swing.*;
+
 
 //LoadLevel allows Levelmanager to get the levelbackground
 //Gets the png file
@@ -21,13 +26,15 @@ public class LoadSaves {
 
 
     public static BufferedImage getLevelBackground(String fileName){
-        BufferedImage img = null;
+        BufferedImage img = null ;
         InputStream is = LoadSaves.class.getResourceAsStream("/" + fileName);
         try{
             img = ImageIO.read(is);
         }catch(IOException e){
             e.printStackTrace();
-        }finally{
+       }
+        finally{
+
             try{
                 is.close();
             }catch(IOException e){
