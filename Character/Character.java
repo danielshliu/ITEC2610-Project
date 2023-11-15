@@ -1,5 +1,7 @@
 package Character;
 import Game.*;
+
+import gamestates.Playing;
 import Game.MouseHandler;
 
 import javax.imageio.ImageIO;
@@ -14,6 +16,8 @@ public class Character extends Entity {
     public ArrayList<Bullet> bulletInChamber = new ArrayList<>();
     Bullet curBullet;
     private int hitPoint;
+
+    Playing Input;
     KeyboardHandler keyH;
     MouseHandler mouseH;
 
@@ -30,6 +34,13 @@ public class Character extends Entity {
 
 
     double calc;
+    public Character(GamePanel gp, Playing inputs){
+        super(gp, gp.tileSize, gp.tileSize);
+        this.Input = inputs;
+        defaultValues();
+        getImage();
+    }
+
     public Character(GamePanel gp, KeyboardHandler keyH, MouseHandler mouseH) {
         super(gp, gp.tileSize, gp.tileSize);
         this.keyH = keyH;
@@ -70,18 +81,23 @@ public class Character extends Entity {
             }
         }
 
-        if (keyH.up && y - speed >= 0) {
+        //Change Input back to keyH if error
+        if (Input.up && y - speed >= 0) {
             y -= speed;
         }
 
-        if (keyH.down && y + speed <= gp.screenHeight - gp.tileSize) {
+        //Change Input back to keyH if error
+        if (Input.down && y + speed <= gp.screenHeight - gp.tileSize) {
             y += speed;
         }
 
-        if (keyH.left && x - speed >= 0) {
+        //Change Input back to keyH if error
+        if (Input.left && x - speed >= 0) {
             x -= speed;
         }
-        if (keyH.right && x + speed <= gp.screenWidth - gp.tileSize) {
+
+        //Change Input back to keyH if error
+        if (Input.right && x + speed <= gp.screenWidth - gp.tileSize) {
             x += speed;
         }
 
@@ -106,13 +122,13 @@ public class Character extends Entity {
 
 
         g2.setColor(Color.white);
-
-        if (mouseH.mouseClicked){
+        //Change Input back to mouseH if error
+        if (Input.mouseClicked){
             x1 = x+(gp.tileSize/2);
             y1 = (y+(gp.tileSize/2)) - 100;
-
-            x2 = mouseH.mouseLocation[0];
-            y2 = mouseH.mouseLocation[1];
+            //Change Input back to mouseH if error
+            x2 = Input.mouseLocation[0];
+            y2 = Input.mouseLocation[1];
 
             x3 = x+(gp.tileSize/2);
             y3 = y+(gp.tileSize/2);
@@ -152,9 +168,9 @@ public class Character extends Entity {
             }
 
             //System.out.println((calc + direction) % 360);
-
-            g2.drawRect(mouseH.mouseLocation[0]-5, mouseH.mouseLocation[1]-5, 10, 10);
-            g2.drawLine(mouseH.mouseLocation[0], mouseH.mouseLocation[1], x+(gp.tileSize/2), y+(gp.tileSize/2));
+            //Change Input back to mouseH if error
+            g2.drawRect(Input.mouseLocation[0]-5, Input.mouseLocation[1]-5, 10, 10);
+            g2.drawLine(Input.mouseLocation[0], Input.mouseLocation[1], x+(gp.tileSize/2), y+(gp.tileSize/2));
             //directionNew = ((calc + direction) % 360);
 
             direction = calc;

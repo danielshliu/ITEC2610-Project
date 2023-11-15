@@ -89,7 +89,7 @@ public class Enemy1 extends Entity{
         System.out.println(c);
     }
 
-
+    //getImage need to add Level to get the correct image for the entity
     public void getImage(){
         try{
             im = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/img/AsteroidLevel1.png")));

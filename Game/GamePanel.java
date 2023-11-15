@@ -10,6 +10,7 @@ import gamestates.Gamestate;
 import gamestates.Menu;
 import levels.LevelManager;
 import levels.Levels;
+import gamestates.Playing;
 
 
 public class GamePanel extends JPanel implements Runnable{
@@ -31,8 +32,11 @@ public class GamePanel extends JPanel implements Runnable{
     public Rectangle playScreen = new Rectangle(-tileSize, -tileSize, screenWidth+(tileSize*2), screenHeight+(tileSize*2));
     KeyboardHandler keyH = new KeyboardHandler();
     MouseHandler mouseH = new MouseHandler();
+    Playing Input = new Playing(this);
     Levels lvl = new Levels(this);
     public Character character = new Character(this, keyH, mouseH);
+
+    public Character testCharacter = new Character (this, Input);
     public ArrayList<Enemy1> asteroids = new ArrayList<>();
 
     //Jacob I'm guessing these enemies here don't really matter since enemies are created in the level class.
@@ -52,9 +56,12 @@ public class GamePanel extends JPanel implements Runnable{
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
-        this.addKeyListener(keyH);
-        this.addMouseListener(mouseH);
-        this.addMouseMotionListener(mouseH);
+        //Change Input back to keyH if error
+        this.addKeyListener(Input);
+        //Change Input back to mouseH if error
+        this.addMouseListener(Input);
+        this.addMouseMotionListener(Input);
+
         this.setFocusable(true);
 
         //Disabling this for now
@@ -66,6 +73,7 @@ public class GamePanel extends JPanel implements Runnable{
         //Menu things click things.
         gameThread = new Thread(this);
         gameThread.start();
+
         switch(Gamestate.state){
             case MENU:
 
@@ -107,10 +115,10 @@ public class GamePanel extends JPanel implements Runnable{
                 enemies.add(e);
             }
         }
-
-        for (int o = 0; o < character.bulletInChamber.size(); o++){
-            if (character.bulletInChamber.get(o).valid) {
-                bullets.add(character.bulletInChamber.get(o));
+        //Change character back to testCharacter if error
+        for (int o = 0; o < testCharacter.bulletInChamber.size(); o++){
+            if (testCharacter.bulletInChamber.get(o).valid) {
+                bullets.add(testCharacter.bulletInChamber.get(o));
             }
         }
         //HitBoxes.add(character.getHitbox());
@@ -124,8 +132,8 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
 
-
-        character.update();
+        //Change character back to testCharacter if error
+        testCharacter.update();
         for (Enemy1 e : asteroids){
             if (e.valid){
                 e.update();
@@ -145,10 +153,10 @@ public class GamePanel extends JPanel implements Runnable{
                 e.draw(g2);
             }
         }
-
-        character.drawHitbox(g2);
+        //Change character back to testCharacter if error
+        testCharacter.drawHitbox(g2);
         // User (Paint last)
-        character.draw(g2);
+        testCharacter.draw(g2);
 
         g2.dispose();
     }
