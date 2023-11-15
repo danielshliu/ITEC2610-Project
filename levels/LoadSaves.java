@@ -27,7 +27,7 @@ public class LoadSaves {
 
     public static BufferedImage getLevelBackground(String fileName){
         BufferedImage img = null ;
-        InputStream is = LoadSaves.class.getResourceAsStream("/" + fileName);
+        InputStream is = LoadSaves.class.getResourceAsStream("/img/" + fileName);
         try{
             img = ImageIO.read(is);
         }catch(IOException e){

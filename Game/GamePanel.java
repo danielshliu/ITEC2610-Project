@@ -71,7 +71,8 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void startGameThread(){
         //Menu things click things.
-
+        //JACOB MOVE THE THINGS HERE :D
+        
         switch(Gamestate.state){
             case MENU:
                 menu.update();

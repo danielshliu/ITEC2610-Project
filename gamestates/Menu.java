@@ -31,8 +31,8 @@ public class Menu extends State implements Statemethods{
         //3 to quit
         buttons[0] = new MenuButton(GamePanel.screenWidth/2 , (int)250 * GamePanel.scale,0,Gamestate.PLAYING);
         buttons[1] = new MenuButton(GamePanel.screenWidth/2 , (int)250 * GamePanel.scale, 1, Gamestate.OPTIONS);
-        buttons[3] = new MenuButton(GamePanel.screenWidth/2 , (int)250 * GamePanel.scale,2,Gamestate.TUTORIAL);
-        buttons[4] = new MenuButton(GamePanel.screenWidth/2 , (int)250 * GamePanel.scale, 3, Gamestate.QUIT);
+        buttons[2] = new MenuButton(GamePanel.screenWidth/2 , (int)250 * GamePanel.scale,2,Gamestate.TUTORIAL);
+        buttons[3] = new MenuButton(GamePanel.screenWidth/2 , (int)250 * GamePanel.scale, 3, Gamestate.QUIT);
     }
 
     public void loadBackground(){
