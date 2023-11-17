@@ -7,8 +7,6 @@
     <list default="true" id="e2dd728a-14db-4eb3-a988-b1fbe2102d4c" name="Changes" comment="Fixing more intellij stuff butt this time on the mac">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamestates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/LoadSaves.java" beforeDir="false" afterPath="$PROJECT_DIR$/levels/LoadSaves.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +70,7 @@
 }</component>
   <component name="ProjectId" id="2Wj0lWgwSEGc8DSBTxtWhnFzgiR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">

@@ -75,6 +75,8 @@ public class GamePanel extends JPanel implements Runnable{
         
         switch(Gamestate.state){
             case MENU:
+//                gameThread = new Thread(this);
+//                gameThread.start();
                 menu.update();
                 break;
             case PLAYING:
