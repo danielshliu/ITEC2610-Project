@@ -1,11 +1,11 @@
 package Character;
-import Game.GamePanel;
+import Game.Game;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Entity {
-    GamePanel gp;
+    Game gp;
     protected int x;
     protected int y;
     protected int speed;
@@ -16,7 +16,7 @@ public class Entity {
     protected Rectangle hitbox;
     int hitPoints;
 
-    public Entity(GamePanel gp, int w, int h){
+    public Entity(Game gp, int w, int h){
         this.gp = gp;
         initHitBox(w, h);
     }

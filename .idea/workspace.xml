@@ -4,9 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2dd728a-14db-4eb3-a988-b1fbe2102d4c" name="Changes" comment="Fixing more intellij stuff butt this time on the mac">
+    <list default="true" id="e2dd728a-14db-4eb3-a988-b1fbe2102d4c" name="Changes" comment="it works? kind of i have no idea">
+      <change afterPath="$PROJECT_DIR$/Game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Character/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Character/Enemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Enemy1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Character/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/Playing.java" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/Playing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamestates/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/LevelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/levels/LevelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/levels/Levels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/ui/MenuButton.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +83,6 @@
 }</component>
   <component name="ProjectId" id="2Wj0lWgwSEGc8DSBTxtWhnFzgiR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -118,6 +130,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MainFrame" />
       </list>
     </recent_temporary>
   </component>
@@ -223,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699937057461</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="it works? kind of i have no idea">
+      <option name="closed" value="true" />
+      <created>1700089606938</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1700089606938</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,7 +273,8 @@
     <MESSAGE value="Rotating on the character" />
     <MESSAGE value="Added shooting" />
     <MESSAGE value="Fixing more intellij stuff butt this time on the mac" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixing more intellij stuff butt this time on the mac" />
+    <MESSAGE value="it works? kind of i have no idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="it works? kind of i have no idea" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

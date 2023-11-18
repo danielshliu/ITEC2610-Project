@@ -1,10 +1,10 @@
 package levels;
 
-import Game.GamePanel;
+import Game.Game;
 import Character.Enemy1;
 public class Levels implements levelInterface{
-    GamePanel gp;
-    public Levels(GamePanel gp){
+    Game gp;
+    public Levels(Game gp){
         this.gp = gp;
     }
 

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.lang.Math;
 import java.util.Objects;
 
-import Game.GamePanel;
+import Game.Game;
 
 // Asteroid
 public class Enemy1 extends Entity{
@@ -18,7 +18,7 @@ public class Enemy1 extends Entity{
     long lastHit = System.currentTimeMillis();
     ArrayList<Integer> hitBy = new ArrayList<>();
 
-    public Enemy1(GamePanel gp, int[] startPoint , int[] midPoint, int[] endPoint, int speed){
+    public Enemy1(Game gp, int[] startPoint , int[] midPoint, int[] endPoint, int speed){
         super(gp, gp.tileSize, gp.tileSize);
         this.speed = speed;
         defaultValues(startPoint[0]);

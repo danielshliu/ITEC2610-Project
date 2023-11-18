@@ -1,6 +1,6 @@
 package levels;
 
-import Game.GamePanel;
+import Game.Game;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -9,11 +9,11 @@ import java.awt.image.BufferedImage;
 
 //The
 public class LevelManager {
-    private GamePanel game;
+    private Game game;
     private BufferedImage levelBackGround;
     private Levels levelSelect;
 
-    public LevelManager(GamePanel game,String levelFileName,Levels levelSelect){
+    public LevelManager(Game game, String levelFileName, Levels levelSelect){
         this.game = game;
         levelBackGround = LoadSaves.getLevelBackground(levelFileName);
         this.levelSelect = levelSelect;

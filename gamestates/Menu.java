@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
-import Game.GamePanel;
+import Game.Game;
 import ui.MenuButton;
 import levels.LoadSaves;
 
@@ -17,7 +17,7 @@ public class Menu extends State implements Statemethods{
     private int menuX, menuY, menuWidth, menuHeight;
 
 
-    public Menu(GamePanel game){
+    public Menu(Game game){
         super(game);
         loadButtons();
         loadBackground();
@@ -29,10 +29,10 @@ public class Menu extends State implements Statemethods{
         //1 to Options
         //2 to Tutorial
         //3 to quit
-        buttons[0] = new MenuButton(GamePanel.screenWidth/2 , (int)250 * GamePanel.scale,0,Gamestate.PLAYING);
-        buttons[1] = new MenuButton(GamePanel.screenWidth/2 , (int)250 * GamePanel.scale, 1, Gamestate.OPTIONS);
-        buttons[2] = new MenuButton(GamePanel.screenWidth/2 , (int)250 * GamePanel.scale,2,Gamestate.TUTORIAL);
-        buttons[3] = new MenuButton(GamePanel.screenWidth/2 , (int)250 * GamePanel.scale, 3, Gamestate.QUIT);
+        buttons[0] = new MenuButton(Game.screenWidth/2 , (int)250 * Game.scale,0,Gamestate.PLAYING);
+        buttons[1] = new MenuButton(Game.screenWidth/2 , (int)250 * Game.scale, 1, Gamestate.OPTIONS);
+        buttons[2] = new MenuButton(Game.screenWidth/2 , (int)250 * Game.scale,2,Gamestate.TUTORIAL);
+        buttons[3] = new MenuButton(Game.screenWidth/2 , (int)250 * Game.scale, 3, Gamestate.QUIT);
     }
 
     public void loadBackground(){

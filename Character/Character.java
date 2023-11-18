@@ -34,14 +34,14 @@ public class Character extends Entity {
 
 
     double calc;
-    public Character(GamePanel gp, Playing inputs){
+    public Character(Game gp, Playing inputs){
         super(gp, gp.tileSize, gp.tileSize);
         this.Input = inputs;
         defaultValues();
         getImage();
     }
 
-    public Character(GamePanel gp, KeyboardHandler keyH, MouseHandler mouseH) {
+    public Character(Game gp, KeyboardHandler keyH, MouseHandler mouseH) {
         super(gp, gp.tileSize, gp.tileSize);
         this.keyH = keyH;
         this.mouseH = mouseH;

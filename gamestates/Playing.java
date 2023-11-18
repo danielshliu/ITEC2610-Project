@@ -2,7 +2,7 @@ package gamestates;
 
 
 import levels.LevelManager;
-import Game.GamePanel;
+import Game.Game;
 //import java.awt.event.KeyListener;
 //import java.awt.event.MouseListener;
 //import java.awt.event.MouseMotionListener;
@@ -23,7 +23,7 @@ public class Playing extends  State implements Statemethods,MouseListener,MouseM
 
     public int[] mouseLocation = new int[2];
 
-    public Playing(GamePanel game) {
+    public Playing(Game game) {
         super (game);
     }
 

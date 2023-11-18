@@ -1,6 +1,6 @@
 package Character;
 
-import Game.GamePanel;
+import Game.Game;
 import java.awt.geom.Rectangle2D;
 import java.lang.Math;
 import java.awt.*;
@@ -18,7 +18,7 @@ public class Bullet extends Entity{
 
 
 
-    public Bullet(GamePanel gp, int x, int y, double direction, double slope, double b) {
+    public Bullet(Game gp, int x, int y, double direction, double slope, double b) {
         super(gp, 10, 10);
         defaultStats(x, y, direction, slope, b);
 

@@ -1,16 +1,16 @@
 package gamestates;
 
 
-import Game.GamePanel;
+import Game.Game;
 import ui.MenuButton;
 
 import java.awt.event.MouseEvent;
 
 public class State {
-    protected GamePanel game;
+    protected Game game;
 
 
-    public State(GamePanel game){
+    public State(Game game){
         this.game = game;
     }
     //fiqure out why Menu is not taking in IsIn().
@@ -19,7 +19,7 @@ public class State {
         return mb.getBounds().contains(e.getX(),e.getY());
     }
 
-    public GamePanel getGame(){
+    public Game getGame(){
         return game;
     }
 
