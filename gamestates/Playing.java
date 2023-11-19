@@ -11,13 +11,12 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Playing extends  State implements Statemethods,MouseListener,MouseMotionListener, KeyListener {
+    private LevelManager levelManager;
 
     public boolean up = false;
     public boolean down = false;
     public boolean left = false;
     public boolean right = false;
-
-
 
     public boolean mouseClicked = false;
 
@@ -27,7 +26,6 @@ public class Playing extends  State implements Statemethods,MouseListener,MouseM
         super (game);
     }
 
-    private LevelManager levelManager;
     //how to get menu into load into level.
 
     public void playLevelOne(){

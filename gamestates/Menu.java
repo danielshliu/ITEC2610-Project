@@ -12,7 +12,7 @@ import levels.LoadSaves;
 
 
 public class Menu extends State implements Statemethods{
-    private MenuButton[] buttons = new MenuButton[4];
+    private MenuButton[] buttons = new MenuButton[3];
     private BufferedImage backgroundImg;
     private int menuX, menuY, menuWidth, menuHeight;
 
@@ -29,19 +29,20 @@ public class Menu extends State implements Statemethods{
         //1 to Options
         //2 to Tutorial
         //3 to quit
-        buttons[0] = new MenuButton(Game.screenWidth/2 , (int)250 * Game.scale,0,Gamestate.PLAYING);
-        buttons[1] = new MenuButton(Game.screenWidth/2 , (int)250 * Game.scale, 1, Gamestate.OPTIONS);
-        buttons[2] = new MenuButton(Game.screenWidth/2 , (int)250 * Game.scale,2,Gamestate.TUTORIAL);
-        buttons[3] = new MenuButton(Game.screenWidth/2 , (int)250 * Game.scale, 3, Gamestate.QUIT);
+        buttons[0] = new MenuButton(Game.screenWidth/2 , (int)(250 * Game.scale),0,Gamestate.PLAYING);
+        buttons[1] = new MenuButton(Game.screenWidth/2 , (int)(250 * Game.scale), 1, Gamestate.OPTIONS);
+        buttons[2] = new MenuButton(Game.screenWidth/2 , (int)(250 * Game.scale),2,Gamestate.QUIT);
+        //buttons[3] = new MenuButton(Game.screenWidth/2 , (int)250 * Game.scale, 3, Gamestate.QUIT);
     }
 
     public void loadBackground(){
-        backgroundImg = LoadSaves.getLevelBackground(LoadSaves.MenuBackGround);
+        this.backgroundImg = LoadSaves.getImage(LoadSaves.MenuBackGround);
         menuWidth = (int) (backgroundImg.getWidth() * game.scale);
         menuHeight = (int) (backgroundImg.getHeight() * game.scale);
         menuX = game.screenWidth / 2 - menuWidth/2;
         menuY = (int) (45 * game.scale);
     }
+
     @Override
     public void update() {
         for (MenuButton mb : buttons)

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.lang.Math;
 import java.util.Objects;
 
+
+import levels.LoadSaves;
 import Game.Game;
 
 // Asteroid
@@ -17,6 +19,8 @@ public class Enemy1 extends Entity{
     public boolean valid = true;
     long lastHit = System.currentTimeMillis();
     ArrayList<Integer> hitBy = new ArrayList<>();
+
+
 
     public Enemy1(Game gp, int[] startPoint , int[] midPoint, int[] endPoint, int speed){
         super(gp, gp.tileSize, gp.tileSize);
@@ -91,11 +95,12 @@ public class Enemy1 extends Entity{
 
     //getImage need to add Level to get the correct image for the entity
     public void getImage(){
-        try{
-            im = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/img/AsteroidLevel1.png")));
-        } catch(IOException e){
-            e.printStackTrace();
-        }
+            im = LoadSaves.getImage(LoadSaves.Enemy1);
+//        try{
+//            im = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/img/AsteroidLevel1.png")));
+//        } catch(IOException e){
+//            e.printStackTrace();
+//        }
     }
     public void draw(Graphics2D g){
         drawHitbox(g);

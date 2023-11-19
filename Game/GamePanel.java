@@ -3,37 +3,40 @@ package Game;
 
 import java.awt.*;
 import javax.swing.JPanel;
+import java.awt.Graphics;
+import MenuInputs.MouseInputs;
+import MenuInputs.KeyboardInput;
 
 import static Game.Game.screenWidth;
 import static Game.Game.screenHeight;
-import gamestates.Playing;
 
 
 public class GamePanel extends JPanel{
-    private MouseHandler mouseInputs;
+    private MouseInputs mouseInputs;
     private Game game;
-    Playing inputs;
 
 
 
     public GamePanel(Game game){
         this.game = game;
+        mouseInputs = new MouseInputs(this);
 
-        inputs = new Playing(game);
-        mouseInputs = new MouseHandler();
-        setPanelSize(game);
-        game.setBackground(Color.black);
-        game.setDoubleBuffered(true);
-        game.addKeyListener(inputs);
-        game.addMouseListener(inputs);
-        game.addMouseMotionListener(inputs);
-        game.setFocusable(true);
+
+        //setBackground(Color.black);
+
+        setPanelSize();
+        setDoubleBuffered(true);
+        addKeyListener(new KeyboardInput(this));
+        addMouseListener(mouseInputs);
+        addMouseMotionListener(mouseInputs);
+        setFocusable(true);
+
 
     }
 
-    private void setPanelSize(Game game) {
+    private void setPanelSize() {
         Dimension size = new Dimension(screenWidth,screenHeight);
-        game.setPreferredSize(size);
+        setPreferredSize(size);
     }
 
     @Override

@@ -1,13 +1,9 @@
 package levels;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.Buffer;
 import javax.imageio.ImageIO;
-
-import javax.swing.*;
 
 
 //LoadLevel allows Levelmanager to get the levelbackground
@@ -19,13 +15,15 @@ public class LoadSaves {
     public static final String LevelFour = "levelFourBackground.png";
     public static final String LevelFive = "levelFiveBackground.png";
     public static final String MenuBackGround = "menuBackground.png";
-    public static final String PLAYBUTTON = "playButton.png";
-    public static final String OPTIONBUTTON = "optionsButton.png";
-    public static final String TUTORIALBUTTON = "tutorialButton.png";
-    public static final String QUITBUTTON = "quitButton.png";
+    public static final String MenuButton = "menuButton.png";
+    public static final String Enemy1 = "AsteroidLevel4.png";
+//    public static final String PLAYBUTTON = "playButton.png";
+//    public static final String OPTIONBUTTON = "optionsButton.png";
+//    public static final String TUTORIALBUTTON = "tutorialButton.png";
+//    public static final String QUITBUTTON = "quitButton.png";
 
 
-    public static BufferedImage getLevelBackground(String fileName){
+    public static BufferedImage getImage(String fileName){
         BufferedImage img = null ;
         InputStream is = LoadSaves.class.getResourceAsStream("/img/" + fileName);
         try{

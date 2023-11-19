@@ -2,6 +2,8 @@ package Game;
 
 import javax.swing.*;
 
+
+
 public class MainFrame{
     private JFrame jFrame;
 
@@ -9,14 +11,14 @@ public class MainFrame{
         jFrame = new JFrame();
 
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jFrame.setLocationRelativeTo(null);
+        jFrame.add(gamePanel);
         jFrame.setResizable(false);
+        jFrame.setTitle("Asteriod Invaders");
+        jFrame.setLocationRelativeTo(null);
+
+
         jFrame.pack();
         jFrame.setVisible(true);
-        jFrame.setTitle("Asteriod Invaders");
-
-        jFrame.add(gamePanel);
-
     }
 
 }

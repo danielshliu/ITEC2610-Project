@@ -3,19 +3,20 @@ package ui;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.nio.Buffer;
-import java.util.concurrent.RecursiveAction;
 
+import Game.Game;
 import levels.LoadSaves;
 import gamestates.Gamestate;
-import levels.LoadSaves;
 
 
 public class MenuButton {
-    private int B_WIDTH = 140;
-    private int B_HEIGHT = 56;
+    private int B_WIDTH_DEFAULT = 140;
+    private int B_HEIGHT_DEFAULT = 56;
+    private int B_WIDTH = (int) (B_WIDTH_DEFAULT * Game.scale);
+    private int B_HEIGHT = (int) (B_HEIGHT_DEFAULT *  Game.scale);
+
     private int xPos,yPos,rowIndex, index;
-    private int xOffsetCenter = B_WIDTH/2;
+    private int xOffsetCenter = B_WIDTH_DEFAULT /2;
     private Gamestate state;
     private BufferedImage[] imgs;
     private boolean mouseOver, mousePressed;
@@ -27,25 +28,29 @@ public class MenuButton {
         this.rowIndex = rowIndex;
         this.state = state;
         loadImgs();
+        initBounds();
 
     }
     private void initBounds(){
-        bounds = new Rectangle(xPos - xOffsetCenter, yPos,B_WIDTH,B_WIDTH);
+        bounds = new Rectangle(xPos - xOffsetCenter, yPos, B_WIDTH, B_HEIGHT);
 
     }
 
     private void loadImgs(){
-        imgs = new BufferedImage[4];
+        imgs = new BufferedImage[3];
+        BufferedImage temp = LoadSaves.getImage(LoadSaves.MenuButton);
+        for (int i = 0; i < imgs.length; i++)
+            imgs[i] = temp.getSubimage(i * B_WIDTH_DEFAULT, rowIndex * B_HEIGHT_DEFAULT, B_WIDTH_DEFAULT, B_HEIGHT_DEFAULT);
 
-        imgs[0] = LoadSaves.getLevelBackground(LoadSaves.PLAYBUTTON);
-        imgs[1] = LoadSaves.getLevelBackground(LoadSaves.TUTORIALBUTTON);
-        imgs[2] = LoadSaves.getLevelBackground(LoadSaves.OPTIONBUTTON);
-        imgs[3] = LoadSaves.getLevelBackground(LoadSaves.QUITBUTTON);
+//        imgs[0] = LoadSaves.getLevelBackground(LoadSaves.PLAYBUTTON);
+//        imgs[1] = LoadSaves.getLevelBackground(LoadSaves.TUTORIALBUTTON);
+//        imgs[2] = LoadSaves.getLevelBackground(LoadSaves.OPTIONBUTTON);
+//        imgs[3] = LoadSaves.getLevelBackground(LoadSaves.QUITBUTTON);
 
     }
 
     public void draw(Graphics g){
-        g.drawImage(imgs[index],xPos-xOffsetCenter,yPos,B_WIDTH,B_HEIGHT,null);
+        g.drawImage(imgs[index],xPos-xOffsetCenter,yPos, B_WIDTH, B_HEIGHT,null);
     }
 
 

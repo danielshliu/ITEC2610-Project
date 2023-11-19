@@ -16,15 +16,15 @@ import gamestates.Playing;
 public class Game extends JPanel implements Runnable{
 
     //Menu stuff
-    private Menu menu;
-    private LevelManager levelManager;
-    private Playing playing;
-    private MainFrame mainFrame;
+    private Menu menu = new Menu(this);
     private GamePanel gamePanel;
+    private MainFrame mainFrame;
+    Thread gameThread;
 
     //Screen Settings
     final static int originalTileSize = 16;
-    final double FPS = 60;
+    private final double FPS = 60;
+    private final double UPS_SET = 200;
     public final static int scale = 3;
     public static final int tileSize = originalTileSize * scale; // 48
     final static int maxScreenCol = 16;
@@ -34,53 +34,51 @@ public class Game extends JPanel implements Runnable{
     public Rectangle playScreen = new Rectangle(-tileSize, -tileSize, screenWidth+(tileSize*2), screenHeight+(tileSize*2));
     KeyboardHandler keyH = new KeyboardHandler();
     MouseHandler mouseH = new MouseHandler();
-    Playing Input = new Playing(this);
+
+
+    private LevelManager levelManager;
+    private Playing playing = new Playing(this);
     Levels lvl = new Levels(this);
     public Character character = new Character(this, keyH, mouseH);
 
-    public Character testCharacter = new Character (this, Input);
-    public ArrayList<Enemy1> asteroids = new ArrayList<>();
+    public Character testCharacter = new Character (this, playing);
 
     //Jacob I'm guessing these enemies here don't really matter since enemies are created in the level class.
-
     //Enemy1 enemy1 = new Enemy1(this, new int[]{-3, -1} ,new int[]{1,1}, new int[]{2, 3});
-//    Enemy1 enemy1 = new Enemy1(this, new int[]{0, 400} ,new int[]{300, 200}, new int[]{768, 300}, 2);
+    //Enemy1 enemy1 = new Enemy1(this, new int[]{0, 400} ,new int[]{300, 200}, new int[]{768, 300}, 2);
+    //Enemy1 enemy2 = new Enemy1(this, new int[]{screenWidth, 520} ,new int[]{300, 400}, new int[]{0, 360}, 1);
 
-//    Enemy1 enemy2 = new Enemy1(this, new int[]{screenWidth, 520} ,new int[]{300, 400}, new int[]{0, 360}, 1);
-    Thread gameThread;
-
+    public ArrayList<Enemy1> asteroids = new ArrayList<>();
     ArrayList<Enemy1> enemies = new ArrayList<>();
     ArrayList<Bullet> bullets = new ArrayList<>();
     Rectangle t1;
     int hit1;
 
-    public Game(){ //Default constructor
 
-//        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-//        this.setBackground(Color.black);
-//        this.setDoubleBuffered(true);
-//        //Change Input back to keyH if error
-        this.addKeyListener(Input);
-//        //Change Input back to mouseH if error
-        this.addMouseListener(Input);
-        this.addMouseMotionListener(Input);
-        //this.setFocusable(true);
+    public Game(){ //Default constructor
+        menu = new Menu(this);
 
         gamePanel = new GamePanel(this);
         mainFrame = new MainFrame(gamePanel);
+        gamePanel.requestFocus();
+
+        this.setPreferredSize(new Dimension(screenWidth, screenHeight));
+        this.setBackground(Color.black);
+        this.setDoubleBuffered(true);
 
         startGameThreadLoop();
-        //Disabling this for now
-        menu =  new Menu(this);
+        //Change Input back to keyH if error
+        this.addKeyListener(playing);
 
+        //Change Input back to mouseH if error
+        this.addMouseListener(playing);
+        this.addMouseMotionListener(playing);
 
-        //lvl.testLevel();
+        this.setFocusable(true);
+
         lvl.levelOne();
+        lvl.testLevel();
     }
-
-
-
-
 
     public void startGameThreadLoop(){
         //Menu things click things.
@@ -89,51 +87,76 @@ public class Game extends JPanel implements Runnable{
         gameThread.start();
     }
 
+    public void inittClasses(){
+       //menu = new Menu(this);
+
+    }
+
     // Making the game 60FPS
     @Override
     public void run() {
         double drawInterval = 1000000000/FPS;
+        double timePerUpdate = 1000000000/UPS_SET;
+
         double delta = 0;
+        double deltaU = 0;
         double lastTime = System.nanoTime();
         long currentTime;
 
         while (gameThread != null){
             currentTime = System.nanoTime();
             delta += (currentTime - lastTime ) / drawInterval;
+            deltaU += (currentTime - lastTime) / timePerUpdate;
+
             lastTime = currentTime;
             if (delta >= 1){
-//                updateGameMenu();
                 update();
+                updateGameCharacter();
                 repaint(); // calls paintComponent()
+                gamePanel.repaint();
                 delta--;
             }
+
+//            if(deltaU >=1){
+//                gamePanel.repaint();
+//                deltaU--;
+//            }
         }
     }
 
-    public void inittClasses(){
-        menu = new Menu(this);
-        Input = new Playing(this);
 
+    public void update(){
+        switch(Gamestate.state){
+            case MENU:
+                menu.update();
+                break;
+            case PLAYING:
+                playing.update();
+                break;
+            case OPTIONS:
+            case QUIT:
+            default:
+                System.exit(0);
+                break;
+        }
     }
 
-//    public void updateGameMenu(){
-//        switch(Gamestate.state){
-//            case MENU:
-//                menu.update();
-//                break;
-//            case PLAYING:
-//                playing.update();
-//                break;
-//            case OPTIONS:
-//            case QUIT:
-//            default:
-//                System.exit(0);
-//                break;
-//        }
-//    }
+    public void render(Graphics g) {
+        switch(Gamestate.state){
+            case MENU:
+                menu.draw(g);
+                break;
+            //add level selection: I'll fiqure it out.
+            case PLAYING:
+                playing.draw(g);
+                break;
+            default:
+                break;
+        }
+    }
 
-    public void update() {
 
+    public void updateGameCharacter() {
 
         enemies.clear();
         for (Enemy1 e : asteroids){
@@ -187,6 +210,17 @@ public class Game extends JPanel implements Runnable{
         g2.dispose();
     }
 
+
+    public Menu getMenu(){
+        return menu;
+    }
+
+    public Playing getPlaying(){
+        return playing;
+    }
+
+
+
     public Rectangle checkCollision2(ArrayList<Rectangle> l, ArrayList<Rectangle> l2){
         for (Rectangle rectangle : l) {
             for (Rectangle rectangle2 : l2) {
@@ -198,23 +232,4 @@ public class Game extends JPanel implements Runnable{
         return null;
     }
 
-    public void render(Graphics g) {
-        switch(Gamestate.state){
-            case MENU:
-                menu.draw(g);
-                break;
-            //add level selection: I'll fiqure it out.
-            case PLAYING:
-                playing.draw(g);
-                break;
-            case OPTIONS:
-                //OPTIONS.draw(g);
-                break;
-            case TUTORIAL:
-                break;
-            default:
-                //quit
-                break;
-        }
-    }
 }

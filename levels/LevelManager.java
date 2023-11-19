@@ -15,7 +15,7 @@ public class LevelManager {
 
     public LevelManager(Game game, String levelFileName, Levels levelSelect){
         this.game = game;
-        levelBackGround = LoadSaves.getLevelBackground(levelFileName);
+        levelBackGround = LoadSaves.getImage(levelFileName);
         this.levelSelect = levelSelect;
 
 
@@ -25,6 +25,7 @@ public class LevelManager {
     public void draw(Graphics g){
         //might have to change x, y on this part to get the background level
         g.drawImage(levelBackGround,0,0,null);
+
 
     }
 
