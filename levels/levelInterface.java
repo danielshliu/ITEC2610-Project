@@ -6,7 +6,6 @@ public interface levelInterface {
     public void levelTwo();
     public void levelThree();
     public void levelFour();
-    public void levelFive();
 
 
 }

@@ -81,15 +81,12 @@ public class Game extends JPanel implements Runnable{
     }
 
     public void startGameThreadLoop(){
-        //Menu things click things.
-        //JACOB MOVE THE THINGS HERE :D
         gameThread = new Thread(this);
         gameThread.start();
     }
 
     public void inittClasses(){
        //menu = new Menu(this);
-
     }
 
     // Making the game 60FPS
@@ -113,7 +110,7 @@ public class Game extends JPanel implements Runnable{
                 update();
                 updateGameCharacter();
                 repaint(); // calls paintComponent()
-                gamePanel.repaint();
+                //gamePanel.repaint();
                 delta--;
             }
 

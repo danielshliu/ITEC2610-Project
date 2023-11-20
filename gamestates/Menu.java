@@ -1,6 +1,6 @@
 package gamestates;
 
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -52,6 +52,7 @@ public class Menu extends State implements Statemethods{
 
     @Override
     public void draw(Graphics g) {
+        g.setColor(Color.black);
         g.drawImage(backgroundImg,menuX,menuY,menuWidth,menuHeight,null);
 
         for(MenuButton mb: buttons)

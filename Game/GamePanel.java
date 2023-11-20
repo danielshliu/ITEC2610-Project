@@ -21,7 +21,6 @@ public class GamePanel extends JPanel{
         this.game = game;
         mouseInputs = new MouseInputs(this);
 
-
         //setBackground(Color.black);
 
         setPanelSize();
@@ -30,7 +29,6 @@ public class GamePanel extends JPanel{
         addMouseListener(mouseInputs);
         addMouseMotionListener(mouseInputs);
         setFocusable(true);
-
 
     }
 

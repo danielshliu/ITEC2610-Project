@@ -53,7 +53,5 @@ public class Levels implements levelInterface{
     }
 
     @Override
-    public void levelFive() {
 
-    }
 }
