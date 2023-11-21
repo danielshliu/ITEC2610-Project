@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2dd728a-14db-4eb3-a988-b1fbe2102d4c" name="Changes" comment="it works? kind of i have no idea">
+    <list default="true" id="e2dd728a-14db-4eb3-a988-b1fbe2102d4c" name="Changes" comment="still working on menu, rewrote GamePanel and split them up into Game, GamePanel, MainFrame, and Main(to run the whole program)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamestates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/levels/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/levels/Levels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/levelInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/levels/levelInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +70,6 @@
 }</component>
   <component name="ProjectId" id="2Wj0lWgwSEGc8DSBTxtWhnFzgiR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -129,7 +124,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ce733c4f-0d61-4380-bdc4-e9573854f8d9" name="Changes" comment="" />
+      <changelist id="e2dd728a-14db-4eb3-a988-b1fbe2102d4c" name="Changes" comment="still working on menu, rewrote GamePanel and split them up into Game, GamePanel, MainFrame, and Main(to run the whole program)" />
       <created>1697230833864</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -236,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700089606938</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="still working on menu, rewrote GamePanel and split them up into Game, GamePanel, MainFrame, and Main(to run the whole program)">
+      <option name="closed" value="true" />
+      <created>1700280003092</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1700280003092</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +269,8 @@
     <MESSAGE value="Added shooting" />
     <MESSAGE value="Fixing more intellij stuff butt this time on the mac" />
     <MESSAGE value="it works? kind of i have no idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="it works? kind of i have no idea" />
+    <MESSAGE value="still working on menu, rewrote GamePanel and split them up into Game, GamePanel, MainFrame, and Main(to run the whole program)" />
+    <option name="LAST_COMMIT_MESSAGE" value="still working on menu, rewrote GamePanel and split them up into Game, GamePanel, MainFrame, and Main(to run the whole program)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
