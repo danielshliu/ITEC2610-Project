@@ -43,16 +43,11 @@ public class Game extends JPanel implements Runnable{
 
     public Character testCharacter = new Character (this, playing);
 
-    //Jacob I'm guessing these enemies here don't really matter since enemies are created in the level class.
-    //Enemy1 enemy1 = new Enemy1(this, new int[]{-3, -1} ,new int[]{1,1}, new int[]{2, 3});
-    //Enemy1 enemy1 = new Enemy1(this, new int[]{0, 400} ,new int[]{300, 200}, new int[]{768, 300}, 2);
-    //Enemy1 enemy2 = new Enemy1(this, new int[]{screenWidth, 520} ,new int[]{300, 400}, new int[]{0, 360}, 1);
 
     public ArrayList<Enemy1> asteroids = new ArrayList<>();
     ArrayList<Enemy1> enemies = new ArrayList<>();
     ArrayList<Bullet> bullets = new ArrayList<>();
-    Rectangle t1;
-    int hit1;
+
 
 
     public Game(){ //Default constructor
@@ -77,7 +72,7 @@ public class Game extends JPanel implements Runnable{
         this.setFocusable(true);
 
         lvl.levelOne();
-        lvl.testLevel();
+        //lvl.testLevel();
     }
 
     public void startGameThreadLoop(){
@@ -99,6 +94,8 @@ public class Game extends JPanel implements Runnable{
         double deltaU = 0;
         double lastTime = System.nanoTime();
         long currentTime;
+        int FPStest = 0;
+        long lastCheck = System.currentTimeMillis();
 
         while (gameThread != null){
             currentTime = System.nanoTime();
@@ -107,6 +104,14 @@ public class Game extends JPanel implements Runnable{
 
             lastTime = currentTime;
             if (delta >= 1){
+                // Check the FPS if it prints 1000 thats 60FPS
+                /*
+                FPStest += 1;
+                if (FPStest == 60){
+                    System.out.println(System.currentTimeMillis() - lastCheck);
+                    FPStest = 0;
+                    lastCheck = System.currentTimeMillis();
+                } */
                 update();
                 updateGameCharacter();
                 repaint(); // calls paintComponent()
@@ -161,6 +166,7 @@ public class Game extends JPanel implements Runnable{
                 enemies.add(e);
             }
         }
+
         //Change character back to testCharacter if error
         for (int o = 0; o < testCharacter.bulletInChamber.size(); o++){
             if (testCharacter.bulletInChamber.get(o).valid) {
@@ -176,8 +182,15 @@ public class Game extends JPanel implements Runnable{
                     b.valid = false;
                 }
             }
-        }
+            if (rectCheck(e.getHitbox(), testCharacter.getHitbox())){
+                if (e.getHitbox().x != 0 || e.getHitbox().y != 0){
+                    testCharacter.gotHit(rectCheckTest(e.getHitbox(), testCharacter.getHitbox()));
+                    e.valid = false;
+                }
 
+            }
+        }
+;
         //Change character back to testCharacter if error
         testCharacter.update();
         for (Enemy1 e : asteroids){
@@ -200,10 +213,11 @@ public class Game extends JPanel implements Runnable{
             }
         }
         //Change character back to testCharacter if error
-        testCharacter.drawHitbox(g2);
+
         // User (Paint last)
         testCharacter.draw(g2);
 
+        testCharacter.drawHitbox(g2);
         g2.dispose();
     }
 
@@ -218,15 +232,28 @@ public class Game extends JPanel implements Runnable{
 
 
 
-    public Rectangle checkCollision2(ArrayList<Rectangle> l, ArrayList<Rectangle> l2){
-        for (Rectangle rectangle : l) {
-            for (Rectangle rectangle2 : l2) {
-                if(rectangle.contains(rectangle2)){
-                    return rectangle;
+    public static boolean rectCheck(Rectangle r1, Rectangle r2){
+
+        for (int i = 0 ; i <= r1.width; i++){
+            for (int o = 0 ; o <= r1.height; o++){
+                if (r2.contains(r1.x + i, r1.y + o)){
+                    return true;
                 }
             }
         }
-        return null;
+        return false;
+    }
+
+    public static int[] rectCheckTest(Rectangle r1, Rectangle r2){
+
+        for (int i = 0 ; i <= r1.width; i++){
+            for (int o = 0 ; o <= r1.height; o++){
+                if (r2.contains(r1.x + i, r1.y + o)){
+                    return new int[]{r1.x + i, r1.y + o};
+                }
+            }
+        }
+        return new int[]{};
     }
 
 }

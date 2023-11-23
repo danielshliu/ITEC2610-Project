@@ -13,9 +13,11 @@ import java.util.Objects;
 
 
 public class Character extends Entity {
+    boolean hit = false;
+    int hitx , hity;
     public ArrayList<Bullet> bulletInChamber = new ArrayList<>();
     Bullet curBullet;
-    private int hitPoint;
+    private int hitPoint = 3;
 
     Playing Input;
     KeyboardHandler keyH;
@@ -73,7 +75,6 @@ public class Character extends Entity {
     }
 
     public void update(){
-        updateHitBox();
 
         for (int i = 0; i < bulletInChamber.size(); i++){
             if (bulletInChamber.get(i).valid) {
@@ -107,10 +108,15 @@ public class Character extends Entity {
             }
 
         }
+
+        updateHitBox();
     }
 
     public void draw(Graphics2D g2){
         //drawHitbox(g2);
+        if (hit){
+            g2.drawLine(hitx, hity, x, y);
+        }
 
         for (int i = 0; i < bulletInChamber.size(); i++){
             if (bulletInChamber.get(i).valid) {
@@ -206,11 +212,21 @@ public class Character extends Entity {
             curBullet = bulletInChamber.get(bulletInChamber.size()-1);
         }
         else{
-            if (System.currentTimeMillis() - shotTime > 100){
+            if (System.currentTimeMillis() - shotTime > 300){
                 shot = false;
             }
         }
 
+    }
+
+    public void gotHit(int[] xy){
+        hit = true;
+        hity = xy[1];
+        hitx = xy[0];
+        hitPoint --;
+        if (hitPoint <= 0){
+            System.out.println("DEAD GO TO MENU");
+        }
     }
 
     //

@@ -25,14 +25,16 @@ public class Enemy1 extends Entity{
     public Enemy1(Game gp, int[] startPoint , int[] midPoint, int[] endPoint, int speed){
         super(gp, gp.tileSize, gp.tileSize);
         this.speed = speed;
-        defaultValues(startPoint[0]);
+        defaultValues(startPoint[0], startPoint[1]);
         calculations(startPoint, midPoint, endPoint);
         getImage();
     }
 
-    public void defaultValues(int x){
+    public void defaultValues(int x, int sY){
         this.x = x;
         hitPoints = 3;
+
+        yd = sY;
 
         if (x <= gp.screenWidth/2){
             left = true;
@@ -76,11 +78,11 @@ public class Enemy1 extends Entity{
         int evalD3 = (D3[0][0] * D3[1][1] * D3[2][2] + D3[0][1] * D3[1][2] * D3[2][0] + D3[0][2] * D3[1][0] * D3[2][1])-
                 (D3[0][2] * D3[1][1] * D3[2][0] + D3[0][0] * D3[1][2] * D3[2][1] + D3[0][1] * D3[1][0] * D3[2][2]);
 
-        System.out.println(evalD);
-        System.out.println(evalD1);
-        System.out.println(evalD2);
-        System.out.println(evalD3);
-        System.out.println("---");
+        // System.out.println(evalD);
+        // System.out.println(evalD1);
+        // System.out.println(evalD2);
+        // System.out.println(evalD3);
+        // System.out.println("---");
 
 
         this.a = ((double)evalD1/(double)evalD);
@@ -88,9 +90,9 @@ public class Enemy1 extends Entity{
         this.c = startP[1] - (a * (startP[0] * startP[0])) - b * startP[0];
         //this.c = (double)evalD3/(double)evalD;
 
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
+        // System.out.println(a);
+        // System.out.println(b);
+        // System.out.println(c);
     }
 
     //getImage need to add Level to get the correct image for the entity
