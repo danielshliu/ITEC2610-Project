@@ -48,6 +48,9 @@ public class Game extends JPanel implements Runnable{
     ArrayList<Enemy1> enemies = new ArrayList<>();
     ArrayList<Bullet> bullets = new ArrayList<>();
 
+    int enemyCount;
+    Font stringFont = new Font( "SansSerif", Font.BOLD, 60 );
+
 
 
     public Game(){ //Default constructor
@@ -169,6 +172,8 @@ public class Game extends JPanel implements Runnable{
             }
         }
 
+        enemyCount = enemies.size();
+
         //Change character back to testCharacter if error
         for (int o = 0; o < testCharacter.bulletInChamber.size(); o++){
             if (testCharacter.bulletInChamber.get(o).valid) {
@@ -207,8 +212,17 @@ public class Game extends JPanel implements Runnable{
 
         super.paintComponent(g);
 
+
+
         // Enemy (Asteroid)
         Graphics2D g2 = (Graphics2D)g;
+
+        g2.setColor(Color.gray);
+        g2.setFont(stringFont);
+        g2.drawString(""+enemyCount, screenWidth/2, screenHeight/2);
+        g2.setColor(Color.white);
+        testCharacter.drawHitbox(g2);
+
         for (Enemy1 e : asteroids){
             if (e.valid){
                 e.draw(g2);
@@ -219,7 +233,6 @@ public class Game extends JPanel implements Runnable{
         // User (Paint last)
         testCharacter.draw(g2);
 
-        testCharacter.drawHitbox(g2);
         g2.dispose();
     }
 
