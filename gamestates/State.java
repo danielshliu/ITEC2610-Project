@@ -13,7 +13,6 @@ public class State {
     public State(Game game){
         this.game = game;
     }
-    //fiqure out why Menu is not taking in IsIn().
 
     public boolean isIn(MouseEvent e, MenuButton mb){
         return mb.getBounds().contains(e.getX(),e.getY());

@@ -17,10 +17,8 @@ public class LoadSaves {
     public static final String MenuBackGround = "menuBackground.png";
     public static final String MenuButton = "menuButton.png";
     public static final String Enemy1 = "AsteroidLevel4.png";
-//    public static final String PLAYBUTTON = "playButton.png";
-//    public static final String OPTIONBUTTON = "optionsButton.png";
-//    public static final String TUTORIALBUTTON = "tutorialButton.png";
-//    public static final String QUITBUTTON = "quitButton.png";
+    public static final String MainShip = "Ship.png";
+
 
 
     public static BufferedImage getImage(String fileName){

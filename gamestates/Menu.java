@@ -25,10 +25,6 @@ public class Menu extends State implements Statemethods{
 
 
     public void loadButtons(){
-        //0 To Level Selection
-        //1 to Options
-        //2 to Tutorial
-        //3 to quit
         buttons[0] = new MenuButton(Game.screenWidth/2 , (int)(250 * Game.scale),0,Gamestate.PLAYING);
         buttons[1] = new MenuButton(Game.screenWidth/2 , (int)(250 * Game.scale), 1, Gamestate.OPTIONS);
         buttons[2] = new MenuButton(Game.screenWidth/2 , (int)(250 * Game.scale),2,Gamestate.QUIT);
@@ -36,7 +32,7 @@ public class Menu extends State implements Statemethods{
     }
 
     public void loadBackground(){
-        this.backgroundImg = LoadSaves.getImage(LoadSaves.MenuBackGround);
+        backgroundImg = LoadSaves.getImage(LoadSaves.MenuBackGround);
         menuWidth = (int) (backgroundImg.getWidth() * game.scale);
         menuHeight = (int) (backgroundImg.getHeight() * game.scale);
         menuX = game.screenWidth / 2 - menuWidth/2;
@@ -52,7 +48,6 @@ public class Menu extends State implements Statemethods{
 
     @Override
     public void draw(Graphics g) {
-        g.setColor(Color.black);
         g.drawImage(backgroundImg,menuX,menuY,menuWidth,menuHeight,null);
 
         for(MenuButton mb: buttons)
