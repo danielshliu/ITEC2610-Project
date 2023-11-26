@@ -16,7 +16,7 @@ import gamestates.Playing;
 public class Game extends JPanel implements Runnable{
 
     //Menu stuff
-    private Menu menu = new Menu(this);
+    private Menu menu;
     private GamePanel gamePanel;
     private MainFrame mainFrame;
     Thread gameThread;
@@ -59,11 +59,13 @@ public class Game extends JPanel implements Runnable{
         mainFrame = new MainFrame(gamePanel);
         gamePanel.requestFocus();
 
+        startGameThreadLoop();
+
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
 
-        startGameThreadLoop();
+
         //Change Input back to keyH if error
         this.addKeyListener(playing);
 
@@ -71,7 +73,7 @@ public class Game extends JPanel implements Runnable{
         this.addMouseListener(playing);
         this.addMouseMotionListener(playing);
 
-        this.setFocusable(true);
+       this.setFocusable(true);
 
         lvl.levelOne();
         //lvl.testLevel();

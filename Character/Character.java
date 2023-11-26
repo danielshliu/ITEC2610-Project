@@ -3,6 +3,7 @@ import Game.*;
 
 import gamestates.Playing;
 import Game.MouseHandler;
+import levels.LoadSaves;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -67,11 +68,7 @@ public class Character extends Entity {
     }
 
     public void getImage(){
-        try{
-            im = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/img/Ship.png")));
-        } catch(IOException e){
-            e.printStackTrace();
-        }
+        im = LoadSaves.getImage(LoadSaves.MainShip);
     }
 
     public void update(){
