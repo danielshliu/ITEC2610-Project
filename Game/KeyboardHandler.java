@@ -18,6 +18,7 @@ public class KeyboardHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         //just use swtich statement here?
+
         int code = e.getKeyCode();
 
         if (code == KeyEvent.VK_W){
@@ -31,6 +32,9 @@ public class KeyboardHandler implements KeyListener {
         }
         if (code == KeyEvent.VK_D){
             right = true;
+        }
+        if(code ==KeyEvent.VK_ESCAPE){
+            MainFrame.cl.show(MainFrame.deck,"select");
         }
 
     }

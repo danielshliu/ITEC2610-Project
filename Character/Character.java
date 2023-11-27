@@ -37,12 +37,6 @@ public class Character extends Entity {
 
 
     double calc;
-    public Character(Game gp, Playing inputs){
-        super(gp, gp.tileSize, gp.tileSize);
-        this.Input = inputs;
-        defaultValues();
-        getImage();
-    }
 
     public Character(Game gp, KeyboardHandler keyH, MouseHandler mouseH) {
         super(gp, gp.tileSize, gp.tileSize);
@@ -80,22 +74,22 @@ public class Character extends Entity {
         }
 
         //Change Input back to keyH if error
-        if (Input.up && y - speed >= 0) {
+        if (keyH.up && y - speed >= 0) {
             y -= speed;
         }
 
         //Change Input back to keyH if error
-        if (Input.down && y + speed <= gp.screenHeight - gp.tileSize) {
+        if (keyH.down && y + speed <= gp.screenHeight - gp.tileSize) {
             y += speed;
         }
 
         //Change Input back to keyH if error
-        if (Input.left && x - speed >= 0) {
+        if (keyH.left && x - speed >= 0) {
             x -= speed;
         }
 
         //Change Input back to keyH if error
-        if (Input.right && x + speed <= gp.screenWidth - gp.tileSize) {
+        if (keyH.right && x + speed <= gp.screenWidth - gp.tileSize) {
             x += speed;
         }
 
@@ -125,13 +119,11 @@ public class Character extends Entity {
 
 
         g2.setColor(Color.white);
-        //Change Input back to mouseH if error
-        if (Input.mouseClicked){
+        if (mouseH.mouseClicked){
             x1 = x+(gp.tileSize/2);
             y1 = (y+(gp.tileSize/2)) - 100;
-            //Change Input back to mouseH if error
-            x2 = Input.mouseLocation[0];
-            y2 = Input.mouseLocation[1];
+            x2 = mouseH.mouseLocation[0];
+            y2 = mouseH.mouseLocation[1];
 
             x3 = x+(gp.tileSize/2);
             y3 = y+(gp.tileSize/2);
@@ -172,8 +164,8 @@ public class Character extends Entity {
 
             //System.out.println((calc + direction) % 360);
             //Change Input back to mouseH if error
-            g2.drawRect(Input.mouseLocation[0]-5, Input.mouseLocation[1]-5, 10, 10);
-            g2.drawLine(Input.mouseLocation[0], Input.mouseLocation[1], x+(gp.tileSize/2), y+(gp.tileSize/2));
+            g2.drawRect(mouseH.mouseLocation[0]-5, mouseH.mouseLocation[1]-5, 10, 10);
+            g2.drawLine(mouseH.mouseLocation[0], mouseH.mouseLocation[1], x+(gp.tileSize/2), y+(gp.tileSize/2));
             //directionNew = ((calc + direction) % 360);
 
             direction = calc;

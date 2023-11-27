@@ -9,14 +9,12 @@ import javax.imageio.ImageIO;
 //LoadLevel allows Levelmanager to get the levelbackground
 //Gets the png file
 public class LoadSaves {
-    public static final String LevelOne = "levelOneBackground.png";
-    public static final String LevelTwo = "levelTwoBackground.png";
-    public static final String LevelThree = "levelThreeBackground.png";
-    public static final String LevelFour = "levelFourBackground.png";
-    public static final String LevelFive = "levelFiveBackground.png";
     public static final String MenuBackGround = "menuBackground.png";
     public static final String MenuButton = "menuButton.png";
-    public static final String Enemy1 = "AsteroidLevel4.png";
+    public static final String Enemy1 = "AsteroidLevel1.png";
+    public static final String Enemy2 = "AsteroidLevel2.png";
+    public static final String Enemy3 = "AsteroidLevel3.png";
+    public static final String Enemy4 = "AsteroidLevel4.png";
     public static final String MainShip = "Ship.png";
 
 

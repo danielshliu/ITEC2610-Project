@@ -22,12 +22,12 @@ public class Enemy1 extends Entity{
 
 
 
-    public Enemy1(Game gp, int[] startPoint , int[] midPoint, int[] endPoint, int speed){
+    public Enemy1(Game gp, int[] startPoint , int[] midPoint, int[] endPoint, int speed,int level){
         super(gp, gp.tileSize, gp.tileSize);
         this.speed = speed;
         defaultValues(startPoint[0], startPoint[1]);
         calculations(startPoint, midPoint, endPoint);
-        getImage();
+        getImage(level);
     }
 
     public void defaultValues(int x, int sY){
@@ -96,13 +96,23 @@ public class Enemy1 extends Entity{
     }
 
     //getImage need to add Level to get the correct image for the entity
-    public void getImage(){
-            im = LoadSaves.getImage(LoadSaves.Enemy1);
-//        try{
-//            im = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/img/AsteroidLevel1.png")));
-//        } catch(IOException e){
-//            e.printStackTrace();
-//        }
+    public void getImage(int level){
+        switch (level){
+            case 1:
+                im = LoadSaves.getImage(LoadSaves.Enemy1);
+                break;
+            case 2:
+                im = LoadSaves.getImage(LoadSaves.Enemy2);
+                break;
+            case 3:
+                im = LoadSaves.getImage(LoadSaves.Enemy3);
+                break;
+            case 4:
+                im = LoadSaves.getImage(LoadSaves.Enemy4);
+                break;
+
+        }
+
     }
     public void draw(Graphics2D g){
         drawHitbox(g);

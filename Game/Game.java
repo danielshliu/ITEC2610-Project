@@ -17,7 +17,6 @@ public class Game extends JPanel implements Runnable{
 
     //Menu stuff
     private Menu menu;
-    private GamePanel gamePanel;
     private MainFrame mainFrame;
     Thread gameThread;
 
@@ -35,49 +34,33 @@ public class Game extends JPanel implements Runnable{
     KeyboardHandler keyH = new KeyboardHandler();
     MouseHandler mouseH = new MouseHandler();
 
-
-    private LevelManager levelManager;
-    private Playing playing = new Playing(this);
-    Levels lvl = new Levels(this);
     public Character character = new Character(this, keyH, mouseH);
-
-    public Character testCharacter = new Character (this, playing);
-
 
     public ArrayList<Enemy1> asteroids = new ArrayList<>();
     ArrayList<Enemy1> enemies = new ArrayList<>();
     ArrayList<Bullet> bullets = new ArrayList<>();
-
     int enemyCount;
     Font stringFont = new Font( "SansSerif", Font.BOLD, 60 );
 
 
 
     public Game(){ //Default constructor
-        menu = new Menu(this);
+        //menu = new Menu(this);
 
-        gamePanel = new GamePanel(this);
-        mainFrame = new MainFrame(gamePanel);
-        gamePanel.requestFocus();
-
-        startGameThreadLoop();
+        //gamePanel = new GamePanel(this);
+        //mainFrame = new MainFrame(gamePanel);
+        //gamePanel.requestFocus();
 
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
+        startGameThreadLoop();
 
+        this.addKeyListener(keyH);
+        this.addMouseListener(mouseH);
+        this.addMouseMotionListener(mouseH);
+//        this.setFocusable(true);
 
-        //Change Input back to keyH if error
-        this.addKeyListener(playing);
-
-        //Change Input back to mouseH if error
-        this.addMouseListener(playing);
-        this.addMouseMotionListener(playing);
-
-       this.setFocusable(true);
-
-        lvl.levelOne();
-        //lvl.testLevel();
     }
 
     public void startGameThreadLoop(){
@@ -85,18 +68,12 @@ public class Game extends JPanel implements Runnable{
         gameThread.start();
     }
 
-    public void inittClasses(){
-       //menu = new Menu(this);
-    }
-
     // Making the game 60FPS
     @Override
     public void run() {
         double drawInterval = 1000000000/FPS;
-        double timePerUpdate = 1000000000/UPS_SET;
 
         double delta = 0;
-        double deltaU = 0;
         double lastTime = System.nanoTime();
         long currentTime;
         int FPStest = 0;
@@ -105,7 +82,6 @@ public class Game extends JPanel implements Runnable{
         while (gameThread != null){
             currentTime = System.nanoTime();
             delta += (currentTime - lastTime ) / drawInterval;
-            deltaU += (currentTime - lastTime) / timePerUpdate;
 
             lastTime = currentTime;
             if (delta >= 1){
@@ -117,48 +93,11 @@ public class Game extends JPanel implements Runnable{
                     FPStest = 0;
                     lastCheck = System.currentTimeMillis();
                 } */
-                update();
                 updateGameCharacter();
                 repaint(); // calls paintComponent()
-                //gamePanel.repaint();
                 delta--;
             }
 
-//            if(deltaU >=1){
-//                gamePanel.repaint();
-//                deltaU--;
-//            }
-        }
-    }
-
-
-    public void update(){
-        switch(Gamestate.state){
-            case MENU:
-                menu.update();
-                break;
-            case PLAYING:
-                playing.update();
-                break;
-            case OPTIONS:
-            case QUIT:
-            default:
-                System.exit(0);
-                break;
-        }
-    }
-
-    public void render(Graphics g) {
-        switch(Gamestate.state){
-            case MENU:
-                menu.draw(g);
-                break;
-            //add level selection: I'll fiqure it out.
-            case PLAYING:
-                playing.draw(g);
-                break;
-            default:
-                break;
         }
     }
 
@@ -175,9 +114,9 @@ public class Game extends JPanel implements Runnable{
         enemyCount = enemies.size();
 
         //Change character back to testCharacter if error
-        for (int o = 0; o < testCharacter.bulletInChamber.size(); o++){
-            if (testCharacter.bulletInChamber.get(o).valid) {
-                bullets.add(testCharacter.bulletInChamber.get(o));
+        for (int o = 0; o < character.bulletInChamber.size(); o++){
+            if (character.bulletInChamber.get(o).valid) {
+                bullets.add(character.bulletInChamber.get(o));
             }
         }
         //HitBoxes.add(character.getHitbox());
@@ -189,9 +128,9 @@ public class Game extends JPanel implements Runnable{
                     b.valid = false;
                 }
             }
-            if (rectCheck(e.getHitbox(), testCharacter.getHitbox())){
+            if (rectCheck(e.getHitbox(), character.getHitbox())){
                 if (e.getHitbox().x != 0 || e.getHitbox().y != 0){
-                    testCharacter.gotHit(rectCheckTest(e.getHitbox(), testCharacter.getHitbox()));
+                    character.gotHit(rectCheckTest(e.getHitbox(), character.getHitbox()));
                     e.valid = false;
                 }
 
@@ -199,7 +138,7 @@ public class Game extends JPanel implements Runnable{
         }
 ;
         //Change character back to testCharacter if error
-        testCharacter.update();
+        character.update();
         for (Enemy1 e : asteroids){
             if (e.valid){
                 e.update();
@@ -212,8 +151,6 @@ public class Game extends JPanel implements Runnable{
 
         super.paintComponent(g);
 
-
-
         // Enemy (Asteroid)
         Graphics2D g2 = (Graphics2D)g;
 
@@ -221,7 +158,7 @@ public class Game extends JPanel implements Runnable{
         g2.setFont(stringFont);
         g2.drawString(""+enemyCount, screenWidth/2, screenHeight/2);
         g2.setColor(Color.white);
-        testCharacter.drawHitbox(g2);
+        character.drawHitbox(g2);
 
         for (Enemy1 e : asteroids){
             if (e.valid){
@@ -231,19 +168,11 @@ public class Game extends JPanel implements Runnable{
         //Change character back to testCharacter if error
 
         // User (Paint last)
-        testCharacter.draw(g2);
+        character.draw(g2);
 
         g2.dispose();
     }
 
-
-    public Menu getMenu(){
-        return menu;
-    }
-
-    public Playing getPlaying(){
-        return playing;
-    }
 
 
 

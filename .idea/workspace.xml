@@ -7,12 +7,15 @@
     <list default="true" id="e2dd728a-14db-4eb3-a988-b1fbe2102d4c" name="Changes" comment="still working on menu, rewrote GamePanel and split them up into Game, GamePanel, MainFrame, and Main(to run the whole program)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Character.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Character/Enemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Enemy1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Game/KeyboardHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/KeyboardHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamestates/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamestates/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/gamestates/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MenuInputs/KeyboardInput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MenuInputs/MouseInputs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/levels/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/levels/Levels.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/levels/LoadSaves.java" beforeDir="false" afterPath="$PROJECT_DIR$/levels/LoadSaves.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
