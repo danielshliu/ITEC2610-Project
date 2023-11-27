@@ -115,7 +115,7 @@ public class Enemy1 extends Entity{
 
     }
     public void draw(Graphics2D g){
-        drawHitbox(g);
+        //drawHitbox(g);
         g.drawImage(im, x, (int)yd, gp.tileSize, gp.tileSize, null);
     }
 

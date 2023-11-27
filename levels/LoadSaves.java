@@ -15,7 +15,11 @@ public class LoadSaves {
     public static final String Enemy2 = "AsteroidLevel2.png";
     public static final String Enemy3 = "AsteroidLevel3.png";
     public static final String Enemy4 = "AsteroidLevel4.png";
-    public static final String MainShip = "Ship.png";
+    public static final String Ship = "Ship1.png";
+    public static final String Ship2 = "Ship2.png";
+    public static final String Ship3 = "Ship3.png";
+    public static final String Ship4 = "Ship4.png";
+
 
 
 

@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         new MainFrame.Testing();
-        
+
         //Uncomment these whole part to work on the game itself.
 
 //        JFrame window = new JFrame();

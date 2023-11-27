@@ -62,7 +62,7 @@ public class Character extends Entity {
     }
 
     public void getImage(){
-        im = LoadSaves.getImage(LoadSaves.MainShip);
+        im = LoadSaves.getImage(LoadSaves.Ship);
     }
 
     public void update(){
@@ -105,9 +105,9 @@ public class Character extends Entity {
 
     public void draw(Graphics2D g2){
         //drawHitbox(g2);
-        if (hit){
-            g2.drawLine(hitx, hity, x, y);
-        }
+//        if (hit){
+//            g2.drawLine(hitx, hity, x, y);
+//        }
 
         for (int i = 0; i < bulletInChamber.size(); i++){
             if (bulletInChamber.get(i).valid) {
@@ -118,7 +118,7 @@ public class Character extends Entity {
         //g2.fillRect(x, y, gp.tileSize, gp.tileSize);
 
 
-        g2.setColor(Color.white);
+        //g2.setColor(Color.white);
         if (mouseH.mouseClicked){
             x1 = x+(gp.tileSize/2);
             y1 = (y+(gp.tileSize/2)) - 100;
@@ -163,9 +163,8 @@ public class Character extends Entity {
             }
 
             //System.out.println((calc + direction) % 360);
-            //Change Input back to mouseH if error
-            g2.drawRect(mouseH.mouseLocation[0]-5, mouseH.mouseLocation[1]-5, 10, 10);
-            g2.drawLine(mouseH.mouseLocation[0], mouseH.mouseLocation[1], x+(gp.tileSize/2), y+(gp.tileSize/2));
+            //g2.drawRect(mouseH.mouseLocation[0]-5, mouseH.mouseLocation[1]-5, 10, 10);
+//            g2.drawLine(mouseH.mouseLocation[0], mouseH.mouseLocation[1], x+(gp.tileSize/2), y+(gp.tileSize/2));
             //directionNew = ((calc + direction) % 360);
 
             direction = calc;
@@ -175,7 +174,7 @@ public class Character extends Entity {
             }
 
 
-            g2.drawLine(x1, y1 , x2, y2);
+            //g2.drawLine(x1, y1 , x2, y2);
 
             shoot(direction, slope23, g2, b23);
 
@@ -189,7 +188,7 @@ public class Character extends Entity {
         g2.drawImage(im, x, y, gp.tileSize, gp.tileSize, null);
 
 
-        g2.drawLine(x+(gp.tileSize/2), (y+(gp.tileSize/2)) , x+(gp.tileSize/2), (y+(gp.tileSize/2)) - 100);
+        //g2.drawLine(x+(gp.tileSize/2), (y+(gp.tileSize/2)) , x+(gp.tileSize/2), (y+(gp.tileSize/2)) - 100);
 
     }
 

@@ -6,12 +6,10 @@ import javax.swing.*;
 import static Game.Game.screenWidth;
 import static Game.Game.screenHeight;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.security.Key;
 import java.util.logging.Level;
 
 import levels.Levels;
@@ -25,6 +23,7 @@ public class MainFrame{
 
 
     public static class Testing extends JFrame {
+        Game game1,game2,game3,game4;
         private Levels levelSelect;
         //private JPanel levelOnePanel,levelTwoPanel,levelThreePanel,levelFourPanel;
         private JButton levelSelectionButton,TutorialButton,Exit;
@@ -56,7 +55,7 @@ public class MainFrame{
             setResizable(false);
             setSize(screenWidth,screenHeight);
             setLocationRelativeTo(null);
-            setVisible(true);
+            this.setVisible(true);
 
         }
 
@@ -178,24 +177,37 @@ public class MainFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     cl.show(deck,"lvl1");
+                    game1.requestFocusInWindow();
+                    game1.startGameThreadLoop();
+                    levelSelect.levelOne();
                 }
             });
             LevelTwo.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     cl.show(deck,"lvl2");
+                    game2.requestFocusInWindow();
+                    game2.startGameThreadLoop();
+                    levelSelect.levelTwo();
                 }
             });
             LevelThree.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     cl.show(deck,"lvl3");
+                    game3.requestFocusInWindow();
+                    game3.startGameThreadLoop();
+                    levelSelect.levelThree();
                 }
             });
             LevelFour.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     cl.show(deck,"lvl4");
+                    game4.requestFocusInWindow();
+                    game4.startGameThreadLoop();
+                    levelSelect.levelFour();
+
                 }
             });
 
@@ -252,39 +264,40 @@ public class MainFrame{
 
         public JPanel Level1Panel(){
             JPanel levelOnePanel = new JPanel();
-            Game game = new Game();
-            levelSelect = new Levels(game);
-            levelOnePanel.add(game);
-
+            game1 = new Game();
+            levelSelect = new Levels(game1);
+            levelOnePanel.add(game1);
+            game1.requestFocusInWindow();
 
             levelSelect.levelOne();
             return levelOnePanel;
         }
         public JPanel Level2Panel(){
             JPanel levelTwoPanel = new JPanel();
-            Game game = new Game();
-            levelSelect = new Levels(game);
-            levelTwoPanel.add(game);
-            levelTwoPanel.setFocusable(true);
-
+            game2 = new Game();
+            levelSelect = new Levels(game2);
+            levelTwoPanel.add(game2);
+            game2.requestFocusInWindow();
 
             levelSelect.levelTwo();
             return levelTwoPanel;
         }
         public JPanel Level3Panel(){
             JPanel levelThreePanel = new JPanel();
-            Game game = new Game();
-            levelSelect = new Levels(game);
-            levelThreePanel.add(game);
+            game3 = new Game();
+            levelSelect = new Levels(game3);
+            levelThreePanel.add(game3);
+            game3.requestFocusInWindow();
 
             levelSelect.levelThree();
             return levelThreePanel;
         }
         public JPanel Level4Panel(){
             JPanel levelFourPanel = new JPanel();
-            Game game = new Game();
-            levelSelect = new Levels(game);
-            levelFourPanel.add(game);
+            game4 = new Game();
+            levelSelect = new Levels(game4);
+            levelFourPanel.add(game4);
+            game4.requestFocusInWindow();
 
             levelSelect.levelFour();
             return levelFourPanel;
