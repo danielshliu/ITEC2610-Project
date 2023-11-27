@@ -59,7 +59,7 @@ public class Game extends JPanel implements Runnable{
         this.addKeyListener(keyH);
         this.addMouseListener(mouseH);
         this.addMouseMotionListener(mouseH);
-//        this.setFocusable(true);
+       this.setFocusable(true);
 
     }
 

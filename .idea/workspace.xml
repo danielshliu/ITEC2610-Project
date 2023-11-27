@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2dd728a-14db-4eb3-a988-b1fbe2102d4c" name="Changes" comment="still working on menu, rewrote GamePanel and split them up into Game, GamePanel, MainFrame, and Main(to run the whole program)">
+    <list default="true" id="e2dd728a-14db-4eb3-a988-b1fbe2102d4c" name="Changes" comment="stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Character/Enemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Enemy1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/KeyboardHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/KeyboardHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MenuInputs/KeyboardInput.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MenuInputs/MouseInputs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/Levels.java" beforeDir="false" afterPath="$PROJECT_DIR$/levels/Levels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/LoadSaves.java" beforeDir="false" afterPath="$PROJECT_DIR$/levels/LoadSaves.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +71,6 @@
 }</component>
   <component name="ProjectId" id="2Wj0lWgwSEGc8DSBTxtWhnFzgiR" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -250,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700280003092</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="stuff">
+      <option name="closed" value="true" />
+      <created>1700544971504</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1700544971505</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,7 +279,8 @@
     <MESSAGE value="Fixing more intellij stuff butt this time on the mac" />
     <MESSAGE value="it works? kind of i have no idea" />
     <MESSAGE value="still working on menu, rewrote GamePanel and split them up into Game, GamePanel, MainFrame, and Main(to run the whole program)" />
-    <option name="LAST_COMMIT_MESSAGE" value="still working on menu, rewrote GamePanel and split them up into Game, GamePanel, MainFrame, and Main(to run the whole program)" />
+    <MESSAGE value="stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

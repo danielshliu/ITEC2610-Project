@@ -73,7 +73,7 @@ public class MainFrame{
             levelSelectionButton = new JButton("Level Selection");
             levelSelectionButton.setPreferredSize(new Dimension(125,40));
             levelSelectionButton.setBackground(new Color(131, 96, 255));
-            levelSelectionButton.setForeground(Color.WHITE);
+            levelSelectionButton.setForeground(Color.BLACK);
             levelSelectionButton.setFont(new Font("Tahoma", Font.BOLD, 12));
             levelSelectionButton.setAlignmentX(Component.CENTER_ALIGNMENT);
             levelSelectionButton.addActionListener(new ActionListener() {
@@ -85,10 +85,10 @@ public class MainFrame{
 
             TutorialButton = new JButton("Tutorial");
             TutorialButton.setPreferredSize(new Dimension(125,40));
-            TutorialButton.setBackground(new Color(131, 96, 255));
-            TutorialButton.setForeground(Color.WHITE);
+            TutorialButton.setBackground(Color.CYAN);
+            TutorialButton.setForeground(Color.BLACK);
             TutorialButton.setFont(new Font("Tahoma", Font.BOLD, 12));
-
+            TutorialButton.setAlignmentX(Component.CENTER_ALIGNMENT);
             TutorialButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -99,7 +99,7 @@ public class MainFrame{
             Exit = new JButton("Exit");
             Exit.setPreferredSize(new Dimension(125,40));
             Exit.setBackground(new Color(131, 96, 255));
-            Exit.setForeground(Color.WHITE);
+            Exit.setForeground(Color.BLACK);
             Exit.setFont(new Font("Tahoma", Font.BOLD, 12));
             Exit.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -123,6 +123,7 @@ public class MainFrame{
             return menuButtonPanel;
         }
         public JPanel LevelSelection(){
+
             JLabel levelSelectionLabel = new JLabel("Level Selection");
             JPanel levelSelectionPanel = new JPanel();
             levelSelectionPanel.setLayout(new BoxLayout(levelSelectionPanel,BoxLayout.Y_AXIS));
@@ -133,14 +134,14 @@ public class MainFrame{
             LevelOne = new JButton("Level One");
             LevelOne.setPreferredSize(new Dimension(125,40));
             LevelOne.setBackground(new Color(131, 96, 255));
-            LevelOne.setForeground(Color.WHITE);
+            LevelOne.setForeground(Color.BLACK);
             LevelOne.setFont(new Font("Tahoma", Font.BOLD, 12));
             LevelOne.setAlignmentX(Component.CENTER_ALIGNMENT);
 
             LevelTwo = new JButton("Level Two");
             LevelTwo.setPreferredSize(new Dimension(125,40));
             LevelTwo.setBackground(new Color(131, 96, 255));
-            LevelTwo.setForeground(Color.WHITE);
+            LevelTwo.setForeground(Color.BLACK);
             LevelTwo.setFont(new Font("Tahoma", Font.BOLD, 12));
             LevelTwo.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -148,14 +149,14 @@ public class MainFrame{
             LevelThree = new JButton("Level Three");
             LevelThree.setPreferredSize(new Dimension(125,40));
             LevelThree.setBackground(new Color(131, 96, 255));
-            LevelThree.setForeground(Color.WHITE);
+            LevelThree.setForeground(Color.BLACK);
             LevelThree.setFont(new Font("Tahoma", Font.BOLD, 12));
             LevelThree.setAlignmentX(Component.CENTER_ALIGNMENT);
 
             LevelFour = new JButton("Level Four");
             LevelFour.setPreferredSize(new Dimension(125,40));
             LevelFour.setBackground(new Color(131, 96, 255));
-            LevelFour.setForeground(Color.WHITE);
+            LevelFour.setForeground(Color.BLACK);
             LevelFour.setFont(new Font("Tahoma", Font.BOLD, 12));
             LevelFour.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -163,7 +164,7 @@ public class MainFrame{
             Back = new JButton("Back");
             Back.setPreferredSize(new Dimension(125,40));
             Back.setBackground(new Color(131, 96, 255));
-            Back.setForeground(Color.WHITE);
+            Back.setForeground(Color.BLACK);
             Back.setFont(new Font("Tahoma", Font.BOLD, 12));
             Back.setAlignmentX(Component.CENTER_ALIGNMENT);
             Back.addActionListener(new ActionListener() {
@@ -232,8 +233,9 @@ public class MainFrame{
             Back = new JButton("Back");
             Back.setPreferredSize(new Dimension(125,40));
             Back.setBackground(new Color(59, 89, 182));
-            Back.setForeground(Color.WHITE);
+            Back.setForeground(Color.BLACK);
             Back.setFont(new Font("Tahoma", Font.BOLD, 12));
+            Back.setAlignmentX(Component.CENTER_ALIGNMENT);
             Back.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -253,7 +255,6 @@ public class MainFrame{
             Game game = new Game();
             levelSelect = new Levels(game);
             levelOnePanel.add(game);
-
 
 
             levelSelect.levelOne();
