@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2dd728a-14db-4eb3-a988-b1fbe2102d4c" name="Changes" comment="still working on menu, rewrote GamePanel and split them up into Game, GamePanel, MainFrame, and Main(to run the whole program)">
+    <list default="true" id="e2dd728a-14db-4eb3-a988-b1fbe2102d4c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Character/Character.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Character.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Character/Enemy1.java" beforeDir="false" afterPath="$PROJECT_DIR$/Character/Enemy1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Game/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/Game/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/levels/LoadSaves.java" beforeDir="false" afterPath="$PROJECT_DIR$/levels/LoadSaves.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700280003092</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="project done">
+      <option name="closed" value="true" />
+      <created>1701110238014</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1701110238014</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +279,8 @@
     <MESSAGE value="Fixing more intellij stuff butt this time on the mac" />
     <MESSAGE value="it works? kind of i have no idea" />
     <MESSAGE value="still working on menu, rewrote GamePanel and split them up into Game, GamePanel, MainFrame, and Main(to run the whole program)" />
-    <option name="LAST_COMMIT_MESSAGE" value="still working on menu, rewrote GamePanel and split them up into Game, GamePanel, MainFrame, and Main(to run the whole program)" />
+    <MESSAGE value="project done" />
+    <option name="LAST_COMMIT_MESSAGE" value="project done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

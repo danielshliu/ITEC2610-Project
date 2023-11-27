@@ -236,8 +236,16 @@ public class MainFrame{
             tutorialLabel.setForeground(Color.WHITE);
             tutorialLabel.setAlignmentX(tutorialLabel.CENTER_ALIGNMENT);
 
-            JTextField tutorialField = new JTextField("How to Play this game? Each level gets harder try and hit as many enemies as possible!");
+            JTextArea tutorialField = new JTextArea("How to Play this game? " +
+                    " Just shoot the asteroids!!!\n " +
+                    " Each level gets harder try and hit as many enemies as possible!\n " +
+                    " WASD to move \n " +
+                    " Click and Aim to shoot!\n" +
+                    " Press Escape to go back to level selection!");
             tutorialField.setEditable(false);
+            tutorialField.setLineWrap(true);
+            tutorialField.setWrapStyleWord(true);
+            tutorialField.setAlignmentX(tutorialField.CENTER_ALIGNMENT);
 
             JPanel tutorialPanel = new JPanel();
             tutorialPanel.setLayout(new BoxLayout(tutorialPanel, BoxLayout.Y_AXIS));
