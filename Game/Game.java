@@ -118,16 +118,22 @@ public class Game extends JPanel implements Runnable{
         if (enemyCount == 0){
             if (level == 1.1){
                 lvl.levelOneWave2();
+                bullets.clear();
             } else if(level == 2.1){
                 lvl.levelTwoWave2();
+                bullets.clear();
             } else if(level == 3.1){
                 lvl.levelThreeWave2();
+                bullets.clear();
             } else if(level == 3.2){
                 lvl.levelThreeWave3();
+                bullets.clear();
             } else if(level == 4.1){
                 lvl.levelFourWave2();
+                bullets.clear();
             } else if(level == 4.2){
                 lvl.levelFourWave3();
+                bullets.clear();
             }
         }
 
