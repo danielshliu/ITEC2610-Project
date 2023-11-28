@@ -42,7 +42,6 @@ public class Bullet extends Entity{
 
         g.setColor(Color.green);
         g.fill(new Rectangle2D.Double(xd-(sizeW/2.0), yd-(sizeH/2.0), 10, 10));
-        drawHitbox(g);
     }
 
     public void update(){
@@ -60,15 +59,15 @@ public class Bullet extends Entity{
                 else if (slope > 2 || slope < -2){
                     if (direction < 90){
                         xd = ((yd-b) / slope);
-                        yd-=5;
+                        yd-=7;
                     } else{
                     xd = ((yd-b) / slope);
-                    yd+=5;
+                    yd+=7;
                 }}
 
                 else{
                     yd = xd * slope + b;
-                    xd += 5;
+                    xd += 7;
                 }
 
             } else if (direction > 180.00){
@@ -85,13 +84,13 @@ public class Bullet extends Entity{
                 else if (slope > 2 || slope < -2){
                     if (direction < 270){
                         xd = ((yd-b) / slope);
-                        yd+=5;
+                        yd+=7;
                     } else{
                         xd = ((yd-b) / slope);
-                        yd-=5;
+                        yd-=7;
                     }}else{
                 yd = xd * slope + b;
-                xd -= 5;}
+                xd -= 7;}
             }
 
         } else{

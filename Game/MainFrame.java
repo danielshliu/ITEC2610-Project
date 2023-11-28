@@ -180,6 +180,7 @@ public class MainFrame{
                     game1.requestFocusInWindow();
                     game1.startGameThreadLoop();
                     levelSelect.levelOne();
+                    levelSelect.levelOneWave2();
                 }
             });
             LevelTwo.addActionListener(new ActionListener() {
@@ -310,8 +311,5 @@ public class MainFrame{
             levelSelect.levelFour();
             return levelFourPanel;
         }
-
-
     }
-
 }

@@ -14,6 +14,7 @@ import gamestates.Playing;
 
 
 public class Game extends JPanel implements Runnable{
+    public Levels lvl;
 
     //Menu stuff
     private Menu menu;
@@ -41,6 +42,8 @@ public class Game extends JPanel implements Runnable{
     ArrayList<Bullet> bullets = new ArrayList<>();
     int enemyCount;
     Font stringFont = new Font( "SansSerif", Font.BOLD, 60 );
+    Font healthFont = new Font( "SansSerif", Font.TRUETYPE_FONT, 30 );
+    public double level;
 
 
 
@@ -50,7 +53,6 @@ public class Game extends JPanel implements Runnable{
         //gamePanel = new GamePanel(this);
         //mainFrame = new MainFrame(gamePanel);
         //gamePanel.requestFocus();
-
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
@@ -113,6 +115,22 @@ public class Game extends JPanel implements Runnable{
 
         enemyCount = enemies.size();
 
+        if (enemyCount == 0){
+            if (level == 1.1){
+                lvl.levelOneWave2();
+            } else if(level == 2.1){
+                lvl.levelTwoWave2();
+            } else if(level == 3.1){
+                lvl.levelThreeWave2();
+            } else if(level == 3.2){
+                lvl.levelThreeWave3();
+            } else if(level == 4.1){
+                lvl.levelFourWave2();
+            } else if(level == 4.2){
+                lvl.levelFourWave3();
+            }
+        }
+
         //Change character back to testCharacter if error
         for (int o = 0; o < character.bulletInChamber.size(); o++){
             if (character.bulletInChamber.get(o).valid) {
@@ -154,21 +172,43 @@ public class Game extends JPanel implements Runnable{
         // Enemy (Asteroid)
         Graphics2D g2 = (Graphics2D)g;
 
-        g2.setColor(Color.gray);
-        g2.setFont(stringFont);
-        g2.drawString(""+enemyCount, screenWidth/2, screenHeight/2);
-        g2.setColor(Color.white);
-        character.drawHitbox(g2);
-
-        for (Enemy1 e : asteroids){
-            if (e.valid){
-                e.draw(g2);
-            }
+        if (character.getHitPoint() <= 0){
+            g2.setColor(Color.red);
+            g2.setFont(stringFont);
+            g2.drawString("DEAD", screenWidth/2-60, screenHeight/2);
+            g2.setFont(healthFont);
+            g2.setColor(Color.white);
+            g2.drawString("click esc", screenWidth/2-30, screenHeight/2+60);
+        } else if(enemyCount == 0 && level == 0){
+            g2.setColor(Color.green);
+            g2.setFont(stringFont);
+            g2.drawString("LEVEL COMPLETE!!", screenWidth/2-300, screenHeight/2);
+            g2.setFont(healthFont);
+            g2.setColor(Color.white);
+            g2.drawString("click esc to return", screenWidth/2-100, screenHeight/2+60);
         }
-        //Change character back to testCharacter if error
 
-        // User (Paint last)
-        character.draw(g2);
+        else{
+            g2.setColor(Color.gray);
+            g2.setFont(stringFont);
+            g2.drawString(""+enemyCount, screenWidth/2-60, screenHeight/2);
+            g2.setColor(Color.red);
+            g2.setFont(healthFont);
+            g2.drawString("HP: "+character.getHitPoint(), screenWidth-tileSize*2-30, tileSize);
+            g2.setColor(Color.white);
+
+            for (Enemy1 e : asteroids){
+                if (e.valid){
+                    e.draw(g2);
+                }
+            }
+            //Change character back to testCharacter if error
+
+            // User (Paint last)
+            character.draw(g2);
+        }
+
+
 
         g2.dispose();
     }
@@ -199,5 +239,4 @@ public class Game extends JPanel implements Runnable{
         }
         return new int[]{};
     }
-
 }

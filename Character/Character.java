@@ -200,7 +200,7 @@ public class Character extends Entity {
             curBullet = bulletInChamber.get(bulletInChamber.size()-1);
         }
         else{
-            if (System.currentTimeMillis() - shotTime > 300){
+            if (System.currentTimeMillis() - shotTime > 200){
                 shot = false;
             }
         }
