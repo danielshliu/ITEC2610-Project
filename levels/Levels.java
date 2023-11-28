@@ -244,9 +244,10 @@ public class Levels implements levelInterface{
 
         enemy = new Enemy1(gp, new int[]{len, height+100} ,new int[]{len/2, height/2}, new int[]{150, 0}, 3,4);
         gp.asteroids.add(enemy);
-        enemy = new Enemy1(gp, new int[]{200, height+100} ,new int[]{len/2, height/2}, new int[]{len, 0}, 2,4);
+        enemy = new Enemy1(gp, new int[]{200, height+100} ,new int[]{len/2, height/2}, new int[]{len, 0}, 3,4);
         gp.asteroids.add(enemy);
-
+        enemy = new Enemy1(gp, new int[]{len, height+100} ,new int[]{400, height/2}, new int[]{0, 0}, 2,4);
+        gp.asteroids.add(enemy);
 
         setWave(0);
     }
