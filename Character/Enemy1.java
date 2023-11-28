@@ -146,7 +146,6 @@ public class Enemy1 extends Entity{
             hitBy.add(bullet);
             lastHit = System.currentTimeMillis();
             hitPoints--;
-            System.out.println(hitPoints);
             if (hitPoints == 0) {
                 valid = false;
             }

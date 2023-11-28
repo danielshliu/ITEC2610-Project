@@ -107,11 +107,15 @@ public class Game extends JPanel implements Runnable{
     public void updateGameCharacter() {
 
         enemies.clear();
-        for (Enemy1 e : asteroids){
-            if (e.valid){
-                enemies.add(e);
+        try{
+            for (Enemy1 e : asteroids){
+                if (e.valid){
+                    enemies.add(e);
+                }
             }
+        } catch(Error e){
         }
+
 
         enemyCount = enemies.size();
 
@@ -134,7 +138,12 @@ public class Game extends JPanel implements Runnable{
             } else if(level == 4.2){
                 lvl.levelFourWave3();
                 bullets.clear();
+            } else if(level == 4.3){
+                lvl.levelFourWave4();
+                bullets.clear();
             }
+        } else if (enemyCount <= 24 && level == 4.4){
+            lvl.levelFourWave2();
         }
 
         //Change character back to testCharacter if error

@@ -212,9 +212,6 @@ public class Character extends Entity {
         hity = xy[1];
         hitx = xy[0];
         hitPoint --;
-        if (hitPoint <= 0){
-            System.out.println("DEAD GO TO MENU");
-        }
     }
 
     //
