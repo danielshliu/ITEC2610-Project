@@ -54,7 +54,7 @@ public class MainFrame{
 //            menuButtonPanel.setLayout(new GridLayout(1,3));
             menuButtonPanel.setLayout(new BoxLayout(menuButtonPanel, BoxLayout.Y_AXIS));
 
-            JLabel menuLabel = new JLabel("Asteroids Inavaders!!!");
+            JLabel menuLabel = new JLabel("Asteroids Invaders!!!");
             menuLabel.setAlignmentX(menuLabel.CENTER_ALIGNMENT);
             menuLabel.setFont(new Font("Verdana",Font.BOLD,20));
             menuLabel.setForeground(Color.WHITE);
