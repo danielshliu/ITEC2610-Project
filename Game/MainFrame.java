@@ -1,23 +1,15 @@
 package Game;
 
 
-import javax.swing.*;
-
 import static Game.Game.screenWidth;
 import static Game.Game.screenHeight;
 
+import javax.swing.*;
 import java.awt.event.*;
-
 import java.awt.*;
-import java.security.Key;
-import java.util.logging.Level;
-
 import levels.Levels;
 
-
-
 public class MainFrame{
-    private JFrame jFrame;
     static CardLayout cl;
     static JPanel deck;
 
@@ -25,7 +17,6 @@ public class MainFrame{
     public static class Testing extends JFrame {
         Game game1,game2,game3,game4;
         private Levels levelSelect;
-        //private JPanel levelOnePanel,levelTwoPanel,levelThreePanel,levelFourPanel;
         private JButton levelSelectionButton,TutorialButton,Exit;
         private JButton LevelOne,LevelTwo,LevelThree,LevelFour,Back;
 
@@ -35,7 +26,6 @@ public class MainFrame{
             deck = new JPanel();
             cl = new CardLayout();
             deck.setLayout(cl);
-
 
             deck.add(MenuPanel(),"menu");
             deck.add(Tutorial(),"tut");
@@ -84,7 +74,7 @@ public class MainFrame{
 
             TutorialButton = new JButton("Tutorial");
             TutorialButton.setPreferredSize(new Dimension(125,40));
-            TutorialButton.setBackground(Color.CYAN);
+            TutorialButton.setBackground(new Color(131, 96, 255));
             TutorialButton.setForeground(Color.BLACK);
             TutorialButton.setFont(new Font("Tahoma", Font.BOLD, 12));
             TutorialButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -253,7 +243,7 @@ public class MainFrame{
 
             Back = new JButton("Back");
             Back.setPreferredSize(new Dimension(125,40));
-            Back.setBackground(new Color(59, 89, 182));
+            Back.setBackground(new Color(131, 96, 255));
             Back.setForeground(Color.BLACK);
             Back.setFont(new Font("Tahoma", Font.BOLD, 12));
             Back.setAlignmentX(Component.CENTER_ALIGNMENT);

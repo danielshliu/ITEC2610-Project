@@ -6,58 +6,39 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-import gamestates.Gamestate;
-import gamestates.Menu;
-import levels.LevelManager;
 import levels.Levels;
-import gamestates.Playing;
 
 
 public class Game extends JPanel implements Runnable{
     public Levels lvl;
-
-    //Menu stuff
-    private Menu menu;
-    private MainFrame mainFrame;
     Thread gameThread;
-
     //Screen Settings
-    final static int originalTileSize = 16;
+    public double level;
+    private int enemyCount;
+    private final static int originalTileSize = 16;
     private final double FPS = 60;
-    private final double UPS_SET = 200;
+    private final static int maxScreenCol = 16;
+    private final static int maxScreenRow = 12;
     public final static int scale = 3;
     public static final int tileSize = originalTileSize * scale; // 48
-    final static int maxScreenCol = 16;
-    final static int maxScreenRow = 12;
     public static final int screenWidth = tileSize * maxScreenCol; // 768
     public static final int screenHeight = tileSize * maxScreenRow; // 576
     public Rectangle playScreen = new Rectangle(-tileSize, -tileSize, screenWidth+(tileSize*2), screenHeight+(tileSize*2));
-    KeyboardHandler keyH = new KeyboardHandler();
-    MouseHandler mouseH = new MouseHandler();
-
+    private KeyboardHandler keyH = new KeyboardHandler();
+    private MouseHandler mouseH = new MouseHandler();
     public Character character = new Character(this, keyH, mouseH);
-
     public ArrayList<Enemy1> asteroids = new ArrayList<>();
-    ArrayList<Enemy1> enemies = new ArrayList<>();
-    ArrayList<Bullet> bullets = new ArrayList<>();
-    int enemyCount;
+    private ArrayList<Enemy1> enemies = new ArrayList<>();
+    private ArrayList<Bullet> bullets = new ArrayList<>();
     Font stringFont = new Font( "SansSerif", Font.BOLD, 60 );
     Font healthFont = new Font( "SansSerif", Font.TRUETYPE_FONT, 30 );
-    public double level;
 
 
 
     public Game(){ //Default constructor
-        //menu = new Menu(this);
-
-        //gamePanel = new GamePanel(this);
-        //mainFrame = new MainFrame(gamePanel);
-        //gamePanel.requestFocus();
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
         this.setDoubleBuffered(true);
-
-
         this.addKeyListener(keyH);
         this.addMouseListener(mouseH);
         this.addMouseMotionListener(mouseH);
@@ -87,14 +68,6 @@ public class Game extends JPanel implements Runnable{
 
             lastTime = currentTime;
             if (delta >= 1){
-                // Check the FPS if it prints 1000 thats 60FPS
-                /*
-                FPStest += 1;
-                if (FPStest == 60){
-                    System.out.println(System.currentTimeMillis() - lastCheck);
-                    FPStest = 0;
-                    lastCheck = System.currentTimeMillis();
-                } */
                 updateGameCharacter();
                 repaint(); // calls paintComponent()
                 delta--;
@@ -105,7 +78,6 @@ public class Game extends JPanel implements Runnable{
 
 
     public void updateGameCharacter() {
-
         enemies.clear();
         try{
             for (Enemy1 e : asteroids){
@@ -114,8 +86,8 @@ public class Game extends JPanel implements Runnable{
                 }
             }
         } catch(Error e){
+            e.printStackTrace();
         }
-
 
         enemyCount = enemies.size();
 
@@ -146,7 +118,6 @@ public class Game extends JPanel implements Runnable{
             lvl.levelFourWave2();
         }
 
-        //Change character back to testCharacter if error
         for (int o = 0; o < character.bulletInChamber.size(); o++){
             if (character.bulletInChamber.get(o).valid) {
                 bullets.add(character.bulletInChamber.get(o));
@@ -169,8 +140,7 @@ public class Game extends JPanel implements Runnable{
 
             }
         }
-;
-        //Change character back to testCharacter if error
+
         character.update();
         for (Enemy1 e : asteroids){
             if (e.valid){
@@ -179,7 +149,6 @@ public class Game extends JPanel implements Runnable{
         }
 
     }
-
     public void paintComponent(Graphics g){
 
         super.paintComponent(g);
@@ -217,14 +186,9 @@ public class Game extends JPanel implements Runnable{
                     e.draw(g2);
                 }
             }
-            //Change character back to testCharacter if error
-
             // User (Paint last)
             character.draw(g2);
         }
-
-
-
         g2.dispose();
     }
 

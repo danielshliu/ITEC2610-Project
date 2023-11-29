@@ -1,9 +1,5 @@
 package Game;
 
-import gamestates.Menu;
-
-import javax.swing.*;
-
 
 public class Main {
 

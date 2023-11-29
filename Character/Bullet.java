@@ -6,25 +6,17 @@ import java.lang.Math;
 import java.awt.*;
 
 public class Bullet extends Entity{
-
-    double slope;
-    double b;
-    int speed1, speed2;
-    double yd;
-    double xd;
     public boolean valid = true;
-    int sizeW;
-    int sizeH;
-
-
-
+    private double slope;
+    private double b;
+    private double yd;
+    private double xd;
+    private int sizeW;
+    private int sizeH;
     public Bullet(Game gp, int x, int y, double direction, double slope, double b) {
         super(gp, 10, 10);
         defaultStats(x, y, direction, slope, b);
-
-
     }
-
     public void defaultStats(int x, int y, double direction, double slope, double b){
         this.slope = slope;
         this.direction = direction;
@@ -35,11 +27,8 @@ public class Bullet extends Entity{
         this.xd = x;
         this.sizeW = 10;
         this.sizeH = 10;
-
     }
-
     public void draw(Graphics2D g){
-
         g.setColor(Color.green);
         g.fill(new Rectangle2D.Double(xd-(sizeW/2.0), yd-(sizeH/2.0), 10, 10));
     }
@@ -92,16 +81,12 @@ public class Bullet extends Entity{
                 yd = xd * slope + b;
                 xd -= 7;}
             }
-
         } else{
             valid = false;
         }
-
         x = (int)xd - 5;
         y = (int)yd - 5;
         updateHitBox();
-
     }
-
 }
 
