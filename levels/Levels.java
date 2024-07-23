@@ -1,4 +1,4 @@
-package levels;
+package Levels;
 
 import Game.Game;
 import Character.Enemy1;

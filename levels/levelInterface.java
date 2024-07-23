@@ -1,4 +1,4 @@
-package levels;
+package Levels;
 
 public interface levelInterface {
 

@@ -1,4 +1,5 @@
 package Character;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
@@ -7,7 +8,7 @@ import java.lang.Math;
 import java.util.Objects;
 
 
-import levels.LoadSaves;
+import Levels.LoadSaves;
 import Game.Game;
 
 // Asteroid

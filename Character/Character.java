@@ -2,7 +2,7 @@ package Character;
 import Game.*;
 
 import Game.MouseHandler;
-import levels.LoadSaves;
+import Levels.LoadSaves;
 import java.awt.*;
 import java.util.ArrayList;
 import java.lang.Math;

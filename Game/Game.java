@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-import levels.Levels;
+import Levels.Levels;
 
 
 public class Game extends JPanel implements Runnable{

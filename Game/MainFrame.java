@@ -7,7 +7,7 @@ import static Game.Game.screenHeight;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
-import levels.Levels;
+import Levels.Levels;
 
 public class MainFrame{
     static CardLayout cl;
